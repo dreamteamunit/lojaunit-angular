@@ -1,0 +1,8 @@
+<h2>Fornecedores</h2>
+<ul class="fornecedores">
+    <li *ngFor="let forn of fornecedor">
+        <a routerLink="/detail/{{forn.id}}">
+          <span class="badge">{{forn.id}}</span> {{forn.nome}}
+        </a>
+      </li>
+</ul>
