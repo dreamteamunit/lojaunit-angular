@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "angular-frontend-loja-unit"
+  "defaultProject": "angular-frontend-loja-unit",
+  "cli": {
+    "analytics": false
+  }
 }
