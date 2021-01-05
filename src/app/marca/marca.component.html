@@ -1,0 +1,8 @@
+<h2>Marcas</h2>
+<ul class="marcas">
+    <li *ngFor="let marc of marcas">
+        <a routerLink="/detail/{{marc.id}}">
+            <span class="badge">{{marc.id}}</span> {{marc.nome}}
+        </a>
+    </li>
+</ul>

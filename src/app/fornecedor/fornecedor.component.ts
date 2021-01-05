@@ -10,7 +10,7 @@ import { MessageService } from '../message.service';
   styleUrls: ['./fornecedor.component.css'],
 })
 export class FornecedorComponent implements OnInit {
-  clientes: Fornecedor[];
+  fornecedor: Fornecedor[];
 
   constructor(
     private FornecedorService: FornecedorService

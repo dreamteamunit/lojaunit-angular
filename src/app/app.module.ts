@@ -6,11 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { FornecedorComponent } from './fornecedor/fornecedor.component';
+import { MarcaComponent } from './marca/marca.component'
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
-  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent],
+  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
