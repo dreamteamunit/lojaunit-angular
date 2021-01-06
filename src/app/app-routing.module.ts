@@ -4,6 +4,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { FornecedorComponent } from './fornecedor/fornecedor.component'
 import { MarcaComponent } from './marca/marca.component'
 import { FormaPagamentoComponent } from './formaPagamento/formaPagamento.component'
+import { ProdutoComponent } from './produto/produto.component'
 import { CategoriaComponent } from './categoria/categoria.component'
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'formaPagamento',
     component: FormaPagamentoComponent,
+  },
+  {
+    path: 'produto',
+    component: ProdutoComponent,
   }
 ];
 
