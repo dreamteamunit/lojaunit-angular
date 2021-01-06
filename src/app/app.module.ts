@@ -7,11 +7,12 @@ import { AppComponent } from './app.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { FornecedorComponent } from './fornecedor/fornecedor.component';
 import { MarcaComponent } from './marca/marca.component'
+import { CategoriaComponent } from './categoria/categoria.component'
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
-  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent],
+  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
