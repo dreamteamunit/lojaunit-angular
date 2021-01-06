@@ -1,0 +1,8 @@
+<h2>Formas de Pagamento</h2>
+<ul class="formaPagamento">
+    <li *ngFor="let forma of formasPagamento">
+        <a routerLink="/detail/{{forma.id}}">
+          <span class="badge">{{forma.id}}</span> {{forma.forma}}
+        </a>
+      </li>
+</ul>

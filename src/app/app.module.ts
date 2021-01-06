@@ -8,11 +8,12 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { FornecedorComponent } from './fornecedor/fornecedor.component';
 import { MarcaComponent } from './marca/marca.component'
 import { CategoriaComponent } from './categoria/categoria.component'
+import { FormaPagamentoComponent } from './formaPagamento/formaPagamento.component'
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
-  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent],
+  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent, FormaPagamentoComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
