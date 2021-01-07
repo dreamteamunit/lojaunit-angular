@@ -38,7 +38,7 @@ export class MarcaService {
     const id = typeof marca === 'number' ? marca : marca.id;
     const url = `${this.api}/delete/${id}`;
 
-    return this.http.delete<Marca>(url, this.httpOptionsPlain).pipe(
+    return this.http.delete<Marca>(url, this.httpOptions).pipe(
       tap((_) => this.log(`marca deletada id=${id}`)),
       catchError(this.handleError<Marca>('deleteMarca'))
     );
