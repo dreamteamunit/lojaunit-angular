@@ -6,24 +6,40 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
-    providedIn: 'root',
-  })
-  export class MarcaService {
-    private api = 'https://lojaunitspring.herokuapp.com/marca/all';
-  
-    httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    };
+  providedIn: 'root',
+})
+export class MarcaService {
+  private api = 'https://lojaunitspring.herokuapp.com/marca';
 
-    constructor(
-        private http: HttpClient,
-        private messageService: MessageService
-      ) {}
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+  httpOptionsPlain = {
+    headers: new HttpHeaders({
+      Accept: 'text/plain',
+      'Content-Type': 'text/plain',
+    }),
+    responseType: 'text',
+  };
 
-      getMarca(): Observable<Marca[]> {console.log('a');
-    return this.http.get<Marca[]>(this.api).pipe(
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {}
+
+  getMarca(): Observable<Marca[]> {
+    return this.http.get<Marca[]>(this.api + '/all').pipe(
       tap((_) => this.log('Marcas recuperadas')),
       catchError(this.handleError<Marca[]>('getMarca', []))
+    );
+  }
+  deleteMarca(marca: Marca | number): Observable<Marca> {
+    const id = typeof marca === 'number' ? marca : marca.id;
+    const url = `${this.api}/delete/${id}`;
+
+    return this.http.delete<Marca>(url, this.httpOptionsPlain).pipe(
+      tap((_) => this.log(`marca deletada id=${id}`)),
+      catchError(this.handleError<Marca>('deleteMarca'))
     );
   }
 
@@ -45,7 +61,7 @@ import { catchError, map, tap } from 'rxjs/operators';
       return of(result as T);
     };
   }
-  /** Log a HeroService message with the MessageService */
+  /** Log a MarcaService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`MarcaService: ${message}`);
   }

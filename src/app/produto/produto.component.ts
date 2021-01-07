@@ -19,11 +19,15 @@ export class ProdutoComponent implements OnInit {
 
     ngOnInit(){
         this.getProduto();
+        console.log(this.produtos)
     }
 
     getProduto(): void {
         this.ProdutoService
         .getProduto()
-        .subscribe((produto) => (this.produtos = produto))
+        .subscribe((produto) => {
+            console.log(produto);
+            this.produtos = produto;
+        });
     }
 }

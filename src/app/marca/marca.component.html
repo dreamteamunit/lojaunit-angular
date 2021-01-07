@@ -4,5 +4,7 @@
         <a routerLink="/detail/{{marc.id}}">
             <span class="badge">{{marc.id}}</span> {{marc.nome}}
         </a>
+         <button class="delete" title="Apagar marca"
+         (click)="delete(marc)">x</button>
     </li>
 </ul>
