@@ -25,4 +25,14 @@ export class MarcaComponent implements OnInit {
     this.marcas = this.marcas.filter((h) => h !== marca);
     this.MarcaService.deleteMarca(marca).subscribe();
   }
+  add(nome: string,descricao: string): void {
+    nome = nome.trim();
+    descricao = descricao.trim();
+    if (!nome && !descricao) {
+      return;
+    }
+    this.MarcaService.addMarca({ nome, descricao } as Marca).subscribe((marca) => {
+      this.marcas.push(marca);
+    });
+  }
 }

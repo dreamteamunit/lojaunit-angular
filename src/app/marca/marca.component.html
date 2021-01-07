@@ -1,4 +1,17 @@
 <h2>Marcas</h2>
+<div>
+  <label>Nome:
+    <input #marcaNome />
+  </label><br>
+  <label>Descrição:
+    <input #marcaDesc />
+  </label><br>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(marcaNome.value,marcaDesc.value); 
+    marcaNome.value='';marcaDesc.value=''">
+    Adicionar
+  </button>
+</div>
 <ul class="marcas">
     <li *ngFor="let marc of marcas">
         <a routerLink="/detail/{{marc.id}}">

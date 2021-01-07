@@ -21,6 +21,7 @@ export class MarcaService {
     }),
     responseType: 'text',
   };
+  
 
   constructor(
     private http: HttpClient,
@@ -41,6 +42,17 @@ export class MarcaService {
       tap((_) => this.log(`marca deletada id=${id}`)),
       catchError(this.handleError<Marca>('deleteMarca'))
     );
+  }
+  /** POST: add a new marca to the server */
+  addMarca(marca: Marca): Observable<Marca> {
+    return this.http
+      .post<Marca>(this.api + '/add',marca, this.httpOptions)
+      .pipe(
+        tap((novaMarca: Marca) =>
+          this.log(`marca adicionada com id=${novaMarca.id}`)
+        ),
+        catchError(this.handleError<Marca>('addMarca'))
+      );
   }
 
   /**
