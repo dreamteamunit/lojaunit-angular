@@ -1,8 +1,62 @@
+/* CABEÇALHO */
+.cabecalho{
+  width: 100%;
+  float: left;
+  padding: 50px 8%;
+  background-color: #53bcec;
+}
+
+.divCabecalho {
+  display: inline;
+}
+
+.imagem {
+  width: 146px;
+  height: 52px;
+  float: left;
+}
+
+header a:visited {
+  color:white;
+}
+
+.logo a{
+  width: 221px;
+  height: 48px;
+  float: left;
+}
+
+.sociais {
+  float: right;
+}
+
+.sociais a {
+  color: #fff;
+  float: right;
+  margin-left: 12px;
+}
+
+.btn-face:hover {
+  color: #3B5998;
+}
+
+.btn-twitter:hover {
+  color: #54A4D6;
+}
+
+.btn-github:hover {
+  color: #312726;
+}
+
 /* AppComponent's private CSS styles */
 h1 {
-  font-size: 1.2em;
+  font-size: 2.2em;
   margin-bottom: 0;
+  color: white;
+  display: inline;
+  margin-top: 5px !important;
 }
+
 nav a {
   padding: 5px 10px;
   text-decoration: none;

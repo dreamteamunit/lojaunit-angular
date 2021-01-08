@@ -1,11 +1,26 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/clientes">Clientes</a>
-  <a routerLink="/fornecedor">Fornecedores</a>
-  <a routerLink="/marca">Marcas</a>
-  <a routerLink="/categoria">Categorias</a>
-  <a routerLink="/formaPagamento">Formas de Pagamento</a>
-  <a routerLink="/produto">Produtos</a>
+<header class="cabecalho">
+  <a href="../index.html" title="Loja Unit" class="logo">
+    <div class="divCabecalho">
+      <img src="../assets/unit-logo.png" class="imagem" />
+      <h1> {{title}} </h1> 
+    </div>
+  </a>
+
+  <div class="sociais">
+    <a href="https://www.facebook.com" class="btn-face"><i class="fa fa-facebook fa-lg"></i></a>
+    <a href="https://www.twitter.com" class="btn-twitter"><i class="fa fa-twitter fa-lg"></i></a>
+    <a href="https://github.com/dreamteamunit/lojaunit-angular" class="btn-github"><i class="fa fa-github fa-lg"></i></a>
+  </div>
+</header>
+
+<nav class="navbar bg-inverse navbar-dark">
+  <a routerLink="/clientes" class="navbar-brand">Clientes</a>
+  <a routerLink="/fornecedor" class="navbar-brand">Fornecedores</a>
+  <a routerLink="/marca" class="navbar-brand">Marcas</a>
+  <a routerLink="/categoria" class="navbar-brand">Categorias</a>
+  <a routerLink="/formaPagamento" class="navbar-brand">Formas de Pagamento</a>
+  <a routerLink="/produto" class="navbar-brand">Produtos</a>
 </nav>
+
 <router-outlet></router-outlet>
 <app-messages></app-messages>
