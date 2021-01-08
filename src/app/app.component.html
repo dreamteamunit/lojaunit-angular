@@ -1,26 +1,47 @@
-<header class="cabecalho">
-  <a href="../index.html" title="Loja Unit" class="logo">
+<header class="cabecalho container row">
+  <a href="../index.html" title="Loja Unit" class="logo col-sm-12 col-md-6">
     <div class="divCabecalho">
       <img src="../assets/unit-logo.png" class="imagem" />
-      <h1> {{title}} </h1> 
+      <!-- <h1> {{title}} </h1> -->
+      <h1>Shopping</h1> 
     </div>
   </a>
 
-  <div class="sociais">
+  <div class="sociais col-sm-12 col-md-6">
     <a href="https://www.facebook.com" class="btn-face"><i class="fa fa-facebook fa-lg"></i></a>
     <a href="https://www.twitter.com" class="btn-twitter"><i class="fa fa-twitter fa-lg"></i></a>
     <a href="https://github.com/dreamteamunit/lojaunit-angular" class="btn-github"><i class="fa fa-github fa-lg"></i></a>
   </div>
 </header>
 
-<nav class="navbar bg-inverse navbar-dark">
-  <a routerLink="/clientes" class="navbar-brand">Clientes</a>
-  <a routerLink="/fornecedor" class="navbar-brand">Fornecedores</a>
-  <a routerLink="/marca" class="navbar-brand">Marcas</a>
-  <a routerLink="/categoria" class="navbar-brand">Categorias</a>
-  <a routerLink="/formaPagamento" class="navbar-brand">Formas de Pagamento</a>
-  <a routerLink="/produto" class="navbar-brand">Produtos</a>
+<nav class="navbar bg-inverse navbar-dark container row">
+  <a routerLink="/clientes" class="navbar-brand col-md-1 col-sm-12">Clientes</a>
+  <a routerLink="/fornecedor" class="navbar-brand col-md-1 col-sm-12">Fornecedores</a>
+  <a routerLink="/marca" class="navbar-brand col-md-1 col-sm-12">Marcas</a>
+  <a routerLink="/categoria" class="navbar-brand col-md-1 col-sm-12">Categorias</a>
+  <a routerLink="/formaPagamento" class="navbar-brand col-md-1 col-sm-12">Formas de Pagamento</a>
+  <a routerLink="/produto" class="navbar-brand col-md-1 col-sm-12">Produtos</a>
 </nav>
 
 <router-outlet></router-outlet>
 <app-messages></app-messages>
+
+<section class="endereco container row">
+  <div class="contato col-sm-12 col-md-6">
+    <h3> Contatos </h3>
+    <ul>
+        <li><i class="fa fa-phone fa-lg"> (81) 3878-5155</i></li>
+        <li><i class="fa fa-whatsapp fa-lg"> (81) 99999-0000</i></li>
+        <li><i class="fa fa-envelope fa-lg"> unit.shopping@unitemail.com.br </i></li>
+    </ul>
+    <h3> Onde Estamos</h3>
+    <p>Centro Universitário Tiradentes - Rua Barão de São Borja, 427 - Soledade, Recife-PE</p>
+  </div>
+  <div class="map col-sm-12 col-md-6">   
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.396808413928!2d-34.89341668567071!3d-8.06094478277364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab19bae0e57b87%3A0x84b2824c61d9694e!2sUnit%20PE%20-%20Recife!5e0!3m2!1spt-BR!2sbr!4v1610108461956!5m2!1spt-BR!2sbr" width="455" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> 
+  </div>
+</section>
+
+<footer class="rodape container row">
+  Unit Shopping - Todos os direitos reservados.
+</footer>

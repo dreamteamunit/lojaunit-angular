@@ -1,4 +1,3 @@
-/* CABEÇALHO */
 .cabecalho{
   width: 100%;
   float: left;
@@ -62,16 +61,32 @@ nav a {
   text-decoration: none;
   margin-top: 10px;
   display: inline-block;
-  background-color: #eee;
+  /*background-color: #eee;*/
+  border-color: #eee;
   border-radius: 4px;
 }
 nav a:visited, a:link {
-  color: #334953;
+  /*color: #334953;*/
+  color: #fff;
 }
 nav a:hover {
   color: #039be5;
-  background-color: #cfd8dc;
+  border: 1px solid rgba(0, 183, 255, 0.2);
+  /*background-color: #cfd8dc;*/
 }
 nav a.active {
   color: #039be5;
+}
+
+.endereco {
+  border: 1px solid rgba(0, 183, 255, 0.6);
+}
+
+
+.rodape{
+  width: 100%;
+  float: left;
+  padding: 10px 8%;
+  background-color: #53bcec;
+  position: relative;
 }
