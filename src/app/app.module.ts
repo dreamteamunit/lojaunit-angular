@@ -12,9 +12,11 @@ import { FormaPagamentoComponent } from './formaPagamento/formaPagamento.compone
 import { ProdutoComponent } from './produto/produto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
+import { MarcaDetailComponent } from './marca-detail/marca-detail.component';
+import { MarcaSearchComponent } from './marca-search/marca-search.component';
 
 @NgModule({
-  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent, FormaPagamentoComponent,ProdutoComponent],
+  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent, FormaPagamentoComponent,ProdutoComponent, MarcaDetailComponent, MarcaSearchComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

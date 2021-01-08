@@ -1,0 +1,16 @@
+<div *ngIf="marca">
+
+  <h2>{{marca.nome | uppercase}} Details</h2>
+  <div><span>id: </span>{{marca.id}}</div>
+  <div>
+    <label>Nome:
+      <input [(ngModel)]="marca.nome" placeholder="Nome"/>
+    </label>
+  </div>
+  <div>
+      <label>Descrição:
+        <input [(ngModel)]="marca.descricao" placeholder="Descrição"/>
+    </label>
+  </div>
+  <button (click)="goBack()">Voltar</button>
+</div>

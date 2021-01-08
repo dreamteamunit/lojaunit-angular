@@ -14,10 +14,11 @@
 </div>
 <ul class="marcas">
     <li *ngFor="let marc of marcas">
-        <a routerLink="/detail/{{marc.id}}">
+        <a routerLink="/marca/detail/{{marc.id}}">
             <span class="badge">{{marc.id}}</span> {{marc.nome}}
         </a>
          <button class="delete" title="Apagar marca"
          (click)="delete(marc)">x</button>
     </li>
 </ul>
+<app-marca-search></app-marca-search>

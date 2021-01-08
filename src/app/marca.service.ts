@@ -60,6 +60,32 @@ export class MarcaService {
       );
   }
 
+  /** GET marca by id. */
+  getMarcaById(id: number): Observable<Marca> {
+    const url = `${this.api}/find/${id}`;
+    return this.http.get<Marca>(url).pipe(
+      tap((_) => this.log(`marca recuperada id=${id}`)),
+      catchError(this.handleError<Marca>(`getMarca id=${id}`))
+    );
+  }
+  /* GET marca whose id contains search term */
+  searchMarca(term: string): Observable<Marca> {
+    if (!term.trim()) {
+      // if not search term, return empty marc array.
+      return of(null);
+    }
+    return this.http.get<Marca>(`${this.api}/find/${term}`).pipe(
+      tap((x) => {
+          //console.log(x);
+          x!=null
+          ? this.log(`marca retornada "${x.nome}"`)
+          : this.log(`marca nao encontrada "${term}"`);
+        }
+      ),
+      catchError(this.handleError<Marca>('searchMarca', null))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

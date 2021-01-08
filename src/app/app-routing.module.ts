@@ -6,6 +6,8 @@ import { MarcaComponent } from './marca/marca.component'
 import { FormaPagamentoComponent } from './formaPagamento/formaPagamento.component'
 import { ProdutoComponent } from './produto/produto.component'
 import { CategoriaComponent } from './categoria/categoria.component'
+import { MarcaDetailComponent } from './marca-detail/marca-detail.component'
+
 
 const routes: Routes = [
   {
@@ -31,7 +33,8 @@ const routes: Routes = [
   {
     path: 'produto',
     component: ProdutoComponent,
-  }
+  },
+  { path: 'marca/detail/:id', component: MarcaDetailComponent },
 ];
 
 @NgModule({
