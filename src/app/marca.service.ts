@@ -14,6 +14,12 @@ export class MarcaService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
+  httpOptions2 = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      responseType: 'text' as 'json',
+    }),
+  };
   httpOptionsPlain = {
     headers: new HttpHeaders({
       Accept: 'text/plain',
@@ -21,7 +27,6 @@ export class MarcaService {
     }),
     responseType: 'text',
   };
-  
 
   constructor(
     private http: HttpClient,
@@ -46,7 +51,7 @@ export class MarcaService {
   /** POST: add a new marca to the server */
   addMarca(marca: Marca): Observable<Marca> {
     return this.http
-      .post<Marca>(this.api + '/add',marca, this.httpOptions)
+      .post<Marca>(this.api + '/add', marca, this.httpOptions)
       .pipe(
         tap((novaMarca: Marca) =>
           this.log(`marca adicionada com id=${novaMarca.id}`)

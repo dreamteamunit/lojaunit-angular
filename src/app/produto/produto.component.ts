@@ -19,7 +19,7 @@ export class ProdutoComponent implements OnInit {
 
     ngOnInit(){
         this.getProduto();
-        console.log(this.produtos)
+        //console.log(this.produtos)
     }
 
     getProduto(): void {
@@ -28,6 +28,8 @@ export class ProdutoComponent implements OnInit {
         .subscribe((produto) => {
             console.log(produto);
             this.produtos = produto;
+            console.log('ok');
+            console.log(this.produtos)
         });
     }
 }
