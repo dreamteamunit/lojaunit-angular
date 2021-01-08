@@ -1,3 +1,4 @@
+<!--
 <h2>Clientes</h2>
 <ul class="clientes">
   <li *ngFor="let cliente of clientes">
@@ -6,3 +7,130 @@
     </a>
   </li>
 </ul>
+-->
+<div class="container row">
+    <h2>Clientes</h2>
+    <hr />
+</div>
+
+<div class="container">
+  <div class="row">
+    <div id="accordion" role="tablist">
+      <div class="card">
+        <div class="card-header" role="tab" id="botoes-cabecalho">
+          <h5 class="mb-0">
+            <a data-toggle="collapse" data-parent="#accordion" href="#listar-clientes"> Listar Clientes </a>
+          </h5>
+          <div id="listar-clientes" class="collpase" role="tabpanel">
+            <div class="card-block">
+              <div class="container row">
+                <hr />
+                <table class="table table-sm table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#Id</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">CPF</th>
+                      <th scope="col">E-mail</th>
+                      <th scope="col">Sexo</th>
+                      <th scope="col">Telefone</th>
+                      <th scope="col">Data de Nascimento</th>
+                      <th scope="col">Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let cliente of clientes">
+                      <th scope="row">{{cliente.id}}</th>
+                      <td scope="row">{{cliente.nome}}</td>
+                      <td>{{cliente.cpf}}</td>
+                      <td>{{cliente.email}}</td>
+                      <td>{{cliente.sexo}}</td>
+                      <td>{{cliente.telefone}}</td>
+                      <td>{{cliente.dataNascimento}}</td>
+                      <td><i class="icon-remove"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" role="tab" id="form-basico-cabecalho">
+            <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#cadastrar-cliente"> Cadastrar Cliente </a>
+            </h5>
+        </div>
+        <div id="cadastrar-cliente" class="collapse" role="tabpanel">
+            <div class="card-block">
+                <form>
+                    <div class="form-group">
+                        <label for="txt-nome"> Nome: </label>
+                        <input type="text" id="txt-nome" class="form-control"
+                            placeholder="Insira seu nome...">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-cpf"> CPF: </label>
+                        <input type="text" id="txt-cpf" class="form-control"
+                            placeholder="Insira seu cpf...">
+                    </div>
+                    <div class="form-group">
+                      <label for="txt-email"> E-mail: </label>
+                      <input type="text" id="txt-email" class="form-control"
+                          placeholder="Insira seu e-mail...">
+                  </div>
+                  <div class="form-group">
+                      <label for="txt-sexo"> Sexo: </label>
+                      <input type="text" id="txt-sexo" class="form-control"
+                          placeholder="Insira seu sexo...">
+                  </div>
+                  <div class="form-group">
+                    <label for="txt-telefone"> Telefone: </label>
+                    <input type="text" id="txt-telefone" class="form-control"
+                        placeholder="Insira seu telefone...">
+                </div>
+                <div class="form-group">
+                    <label for="txt-dtNascimento"> Data de Nascimento: </label>
+                    <input type="text" id="txt-dtNascimento" class="form-control"
+                        placeholder="Insira sua data de nascimento...">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- 
+<div class="container row">
+  <hr />
+  <table class="table table-sm table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">CPF</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Data de Nascimento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <th scope="row">{{cliente.id}}</th>
+        <td scope="row">{{cliente.nome}}</td>
+        <td>{{cliente.cpf}}</td>
+        <td>{{cliente.email}}</td>
+        <td>{{cliente.sexo}}</td>
+        <td>{{cliente.telefone}}</td>
+        <td>{{cliente.dataNascimento}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+-->
