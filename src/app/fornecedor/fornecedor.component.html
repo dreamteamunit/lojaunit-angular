@@ -1,3 +1,4 @@
+<!-- 
 <h2>Fornecedores</h2>
 <ul class="fornecedores">
     <li *ngFor="let forn of fornecedor">
@@ -6,3 +7,91 @@
         </a>
       </li>
 </ul>
+-->
+
+<div class="container row">
+  <h2>Fornecedores</h2>
+  <hr />
+</div>
+
+<div class="container">
+  <div class="row">
+    <div id="accordion" role="tablist">
+      <div class="card">
+        <div class="card-header" role="tab" id="botoes-cabecalho">
+          <h5 class="mb-0">
+            <a data-toggle="collapse" data-parent="#accordion" href="#listar-fornecedores"> Listar Fornecedores </a>
+          </h5>
+          <div id="listar-fornecedores" class="collpase" role="tabpanel">
+            <div class="card-block">
+              <div class="container row">
+                <hr />
+                <table class="table table-sm table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#Id</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Endereco</th>
+                      <th scope="col">Telefone</th>
+                      <th scope="col">CNPJ</th>
+                      <th scope="col">E-mail</th>
+                      <th scope="col">Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let forn of fornecedor">
+                      <th scope="row">{{forn.id}}</th>
+                      <td scope="row">{{forn.nome}}</td>
+                      <td>{{forn.endereco}}</td>
+                      <td>{{forn.telefone}}</td>
+                      <td>{{forn.cnpj}}</td>
+                      <td>{{forn.email}}</td>
+                      <td><i class="icon-remove"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" role="tab" id="form-basico-cabecalho">
+            <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#cadastrar-fornecedor"> Cadastrar Fornecedor </a>
+            </h5>
+        </div>
+        <div id="cadastrar-fornecedor" class="collapse" role="tabpanel">
+            <div class="card-block">
+                <form>
+                    <div class="form-group">
+                        <label for="txt-nome"> Nome: </label>
+                        <input type="text" id="txt-nome" class="form-control"
+                            placeholder="Insira seu nome...">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-endereco"> Endereço: </label>
+                        <input type="text" id="txt-endereco" class="form-control"
+                            placeholder="Insira seu endereço...">
+                    </div>
+                    <div class="form-group">
+                      <label for="txt-telefone"> Telefone: </label>
+                      <input type="text" id="txt-telefone" class="form-control"
+                          placeholder="Insira seu telefone...">
+                    </div>
+                    <div class="form-group">
+                      <label for="txt-cnpj"> CNPJ: </label>
+                      <input type="text" id="txt-cnpj" class="form-control"
+                          placeholder="Insira seu CNPJ...">
+                  </div>
+                    <div class="form-group">
+                      <label for="txt-email"> E-mail: </label>
+                      <input type="text" id="txt-email" class="form-control"
+                          placeholder="Insira seu e-mail...">
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
