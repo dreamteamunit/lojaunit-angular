@@ -9,10 +9,26 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ClienteService {
-  private api = 'https://lojaunitspring.herokuapp.com/clientes/all'; // URL to web api
+  //private api = 'https://lojaunitspring.herokuapp.com/clientes/all'; // URL to web api
+  private api = 'https://lojaunitspring.herokuapp.com/clientes';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
+  httpOptions2 = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      responseType: 'text' as 'json',
+    }),
+  };
+  
+  httpOptionsPlain = {
+    headers: new HttpHeaders({
+      Accept: 'text/plain',
+      'Content-Type': 'text/plain',
+    }),
+    responseType: 'text',
   };
 
   constructor(
@@ -25,6 +41,27 @@ export class ClienteService {
       tap((_) => this.log('clientes recuperados')),
       catchError(this.handleError<Cliente[]>('getClientes', []))
     );
+  }
+
+  deleteCliente(cliente: Cliente | number): Observable<Cliente> {
+    const id = typeof cliente === 'number' ? cliente : cliente.id;
+    const url = `${this.api}/delete/${id}`;
+
+    return this.http.delete<Cliente>(url, this.httpOptions).pipe(
+      tap((_) => this.log(`cliente deletado id=${id}`)),
+      catchError(this.handleError<Cliente>('deleteCliente'))
+    );
+  }
+  /** POST: add a new cliente to the server */
+  addCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http
+      .post<Cliente>(this.api + '/add', cliente, this.httpOptions)
+      .pipe(
+        tap((novoCliente: Cliente) =>
+          this.log(`cliente adicionado com id=${novoCliente.id}`)
+        ),
+        catchError(this.handleError<Cliente>('addCliente'))
+      );
   }
 
   //getCliente(id: number): Observable<Cliente> {

@@ -8,6 +8,35 @@
   </li>
 </ul>
 -->
+
+<h2>Clientes</h2>
+<div>
+  <label>Nome:
+    <input #clienteNome />
+  </label><br>
+  <label>CPF:
+    <input #clienteCpf />
+  </label><br>
+  <label>E-Mail:
+    <input #clienteEmail />
+  </label><br>
+  <label>Sexo:
+    <input #clienteSexo />
+  </label><br>
+  <label>Telefone:
+    <input #clienteTelefone />
+  </label><br>
+  <label>Data de Nascimento:
+    <input #clienteDataNascimento />
+  </label><br>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(clienteNome.value,clienteCpf.value,clienteEmail.value,clienteSexo.value,clienteTelefone.value,clienteDataNascimento.value); 
+  clienteNome.value='';clienteCpf.value='';clienteEmail.value='';clienteSexo.value='';clienteTelefone.value='';clienteDataNascimento.value='';" class="btn btn-success">
+    Adicionar
+  </button>
+</div>
+
+
 <div class="container row">
     <h2>Clientes</h2>
     <hr />
@@ -47,7 +76,8 @@
                       <td>{{cliente.sexo}}</td>
                       <td>{{cliente.telefone}}</td>
                       <td>{{cliente.dataNascimento}}</td>
-                      <td><i class="icon-remove"></i></td>
+                      <td><i class="icon-remove"><button class="delete" title="Apagar Cliente"
+                        (click)="delete(cliente)">x</button></i></td>
                     </tr>
                   </tbody>
                 </table>
@@ -89,12 +119,16 @@
                     <label for="txt-telefone"> Telefone: </label>
                     <input type="text" id="txt-telefone" class="form-control"
                         placeholder="Insira seu telefone...">
-                </div>
-                <div class="form-group">
-                    <label for="txt-dtNascimento"> Data de Nascimento: </label>
-                    <input type="text" id="txt-dtNascimento" class="form-control"
-                        placeholder="Insira sua data de nascimento...">
-                </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="txt-dtNascimento"> Data de Nascimento: </label>
+                      <input type="text" id="txt-dtNascimento" class="form-control"
+                          placeholder="Insira sua data de nascimento...">
+                  </div>
+                  <button (click)="add(clienteNome.value,clienteCpf.value,clienteEmail.value,clienteSexo.value,clienteTelefone.value,clienteDataNascimento.value); 
+    clienteNome.value='';clienteCpf.value='';clienteEmail.value='';clienteSexo.value='';clienteTelefone.value='';clienteDataNascimento.value='';" class="btn btn-success">
+      Adicionar
+                  </button>
                 </form>
             </div>
         </div>

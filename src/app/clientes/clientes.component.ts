@@ -25,4 +25,24 @@ export class ClientesComponent implements OnInit {
       .getClientes()
       .subscribe((clientes) => (this.clientes = clientes));
   }
+
+  delete(cliente: Cliente): void {
+    this.clientes = this.clientes.filter((h) => h !== cliente);
+    this.clienteService.deleteCliente(cliente).subscribe();
+  }
+
+  add(nome: string, cpf: string, email: string, sexo: string, telefone: string, dataNascimento: Date): void {
+    nome = nome.trim();
+    cpf = cpf.trim();
+    email = email.trim();
+    //sexo = sexo.trim();
+    //telefone = telefone.trim();
+    //dataNascimento = dataNascimento.trim();
+    if (!nome && !cpf && !email) {
+      return;
+    }
+    this.clienteService.addCliente({ nome, cpf, email, sexo, telefone, dataNascimento } as Cliente).subscribe((cliente) => {
+      this.clientes.push(cliente);
+    });
+  }
 }
