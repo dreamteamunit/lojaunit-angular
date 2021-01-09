@@ -37,7 +37,7 @@ export class ClienteService {
   ) {}
 
   getClientes(): Observable<Cliente[]> {console.log('a');
-    return this.http.get<Cliente[]>(this.api).pipe(
+    return this.http.get<Cliente[]>(this.api + '/all').pipe(
       tap((_) => this.log('clientes recuperados')),
       catchError(this.handleError<Cliente[]>('getClientes', []))
     );
