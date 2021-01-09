@@ -31,4 +31,7 @@ export class MarcaDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+  save(): void {
+    this.marcaService.updateMarca(this.marca).subscribe(() => this.goBack());
+  }
 }
