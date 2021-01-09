@@ -27,6 +27,16 @@ import { catchError, map, tap } from 'rxjs/operators';
     );
   }
 
+  deleteFormaPagamento(formaPagamento: FormaPagamento | number): Observable<FormaPagamento> {
+    const id = typeof formaPagamento === 'number' ? formaPagamento : formaPagamento.id;
+    const url = `${this.api}/delete/${id}`;
+
+    return this.http.delete<FormaPagamento>(url, this.httpOptions).pipe(
+      tap((_) => this.log(`Forma de Pagamento deletada id=${id}`)),
+      catchError(this.handleError<FormaPagamento>('deleteFormaPagamento'))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

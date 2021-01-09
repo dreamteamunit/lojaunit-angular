@@ -26,4 +26,9 @@ export class FormaPagamentoComponent implements OnInit {
         .getFormaPagamento()
         .subscribe((formaPagamento) => (this.formasPagamento = formaPagamento))
     }
+
+    delete(formaPagamento: FormaPagamento): void {
+        this.formasPagamento = this.formasPagamento.filter((h) => h !== formaPagamento);
+        this.FormaPagamentoService.deleteFormaPagamento(formaPagamento).subscribe();
+      }
 }
