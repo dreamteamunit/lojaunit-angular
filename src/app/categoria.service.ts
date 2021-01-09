@@ -27,6 +27,16 @@ export class CategoriaService {
     );
   }
 
+  deleteCategoria(categoria: Categoria | number): Observable<Categoria> {
+    const id = typeof categoria === 'number' ? categoria : categoria.id;
+    const url = `${this.api}/delete/${id}`;
+
+    return this.http.delete<Categoria>(url, this.httpOptions).pipe(
+      tap((_) => this.log(`categoria deletada id=${id}`)),
+      catchError(this.handleError<Categoria>('deleteCategoria'))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

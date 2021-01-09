@@ -1,3 +1,4 @@
+<!--
 <h2>Categorias</h2>
 <ul class="categorias">
     <li *ngFor="let cat of categorias">
@@ -6,3 +7,71 @@
         </a>
     </li>
 </ul>
+-->
+
+<div class="container row">
+    <h2>Categorias</h2>
+    <hr />
+</div>
+
+<div class="container">
+  <div class="row">
+    <div id="accordion" role="tablist">
+      <div class="card">
+        <div class="card-header" role="tab" id="botoes-cabecalho">
+          <h5 class="mb-0">
+            <a data-toggle="collapse" data-parent="#accordion" href="#listar-categorias"> Listar Categorias </a>
+          </h5>
+          <div id="listar-categorias" class="collpase" role="tabpanel">
+            <div class="card-block">
+              <div class="container row">
+                <hr />
+                <table class="table table-sm table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#Id</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Ativo</th>
+                      <th scope="col">Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let cat of categorias">
+                      <th scope="row">{{cat.id}}</th>
+                      <td scope="row">{{cat.nome}}</td>
+                      <td>{{car.ativo}}</td>
+                      <td><i class="icon-remove"><button class="delete" title="Apagar marca"
+                        (click)="delete(marc)">x</button></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" role="tab" id="form-basico-cabecalho">
+            <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#cadastrar-categorias"> Cadastrar Categorias </a>
+            </h5>
+        </div>
+        <div id="cadastrar-categorias" class="collapse" role="tabpanel">
+            <div class="card-block">
+                <form>
+                    <div class="form-group">
+                        <label for="txt-nome"> Nome: </label>
+                        <input type="text" id="txt-nome" class="form-control"
+                            placeholder="Insira seu nome...">
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-label"> Ativo?
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
