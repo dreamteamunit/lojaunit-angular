@@ -9,6 +9,32 @@
 </ul>
 -->
 
+
+<h2>Fornecedores</h2>
+<div>
+  <label>Nome:
+    <input #fornecedorNome />
+  </label><br>
+  <label>Endereço:
+    <input #fornecedorEndereco />
+  </label><br>
+  <label>Telefone:
+    <input #fornecedorTelefone />
+  </label><br>
+  <label>CNPJ:
+    <input #fornecedorCnpj />
+  </label><br>
+  <label>E-Mail:
+    <input #fornecedorEmail />
+  </label><br>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(fornecedorNome.value,fornecedorEndereco.value,fornecedorTelefone.value,fornecedorCnpj.value,fornecedorEmail.value); 
+  fornecedorNome.value='';fornecedorEndereco.value='';fornecedorTelefone.value='';fornecedorCnpj.value='';fornecedorEmail.value='';" class="btn btn-success">
+    Adicionar
+  </button>
+</div>
+
+
 <div class="container row">
   <h2>Fornecedores</h2>
   <hr />
@@ -46,7 +72,8 @@
                       <td>{{forn.telefone}}</td>
                       <td>{{forn.cnpj}}</td>
                       <td>{{forn.email}}</td>
-                      <td><i class="icon-remove"></i></td>
+                      <td><i class="icon-remove"><button class="delete" title="Apagar fornecedor"
+                        (click)="delete(forn)">x</button></i></td>
                     </tr>
                   </tbody>
                 </table>
@@ -89,6 +116,10 @@
                       <input type="text" id="txt-email" class="form-control"
                           placeholder="Insira seu e-mail...">
                   </div>
+                  <button (click)="add(clienteNome.value,clienteCpf.value,clienteEmail.value,clienteSexo.value,clienteTelefone.value,clienteDataNascimento.value); 
+    clienteNome.value='';clienteCpf.value='';clienteEmail.value='';clienteSexo.value='';clienteTelefone.value='';clienteDataNascimento.value='';" class="btn btn-success">
+      Adicionar
+                  </button>
                 </form>
             </div>
         </div>

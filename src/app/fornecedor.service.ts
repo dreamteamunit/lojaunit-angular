@@ -7,25 +7,63 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
-  })
+})
   export class FornecedorService {
-    private api = 'https://lojaunitspring.herokuapp.com/fornecedor/all';
+    //private api = 'https://lojaunitspring.herokuapp.com/fornecedor/all';
+    private api = 'https://lojaunitspring.herokuapp.com/fornecedor';
   
     httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
 
-    constructor(
-        private http: HttpClient,
-        private messageService: MessageService
-      ) {}
+    httpOptions2 = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        responseType: 'text' as 'json',
+      }),
+    };
 
-      getFornecedor(): Observable<Fornecedor[]> {console.log('a');
-    return this.http.get<Fornecedor[]>(this.api).pipe(
-      tap((_) => this.log('fornecedores recuperados')),
-      catchError(this.handleError<Fornecedor[]>('getFornecedor', []))
-    );
-  }
+    httpOptionsPlain = {
+      headers: new HttpHeaders({
+        Accept: 'text/plain',
+        'Content-Type': 'text/plain',
+      }),
+      responseType: 'text',
+    };
+  
+    constructor(
+      private http: HttpClient,
+      private messageService: MessageService
+    ) {}
+
+    getFornecedor(): Observable<Fornecedor[]> {
+      return this.http.get<Fornecedor[]>(this.api + '/all').pipe(
+        tap((_) => this.log('fornecedores recuperados')),
+        catchError(this.handleError<Fornecedor[]>('getFornecedor', []))
+      );
+    }
+
+    deleteFornecedor(fornecedor: Fornecedor | number): Observable<Fornecedor> {
+      const id = typeof fornecedor === 'number' ? fornecedor : fornecedor.id;
+      const url = `${this.api}/delete/${id}`;
+  
+      return this.http.delete<Fornecedor>(url, this.httpOptions).pipe(
+      tap((_) => this.log(`fornecedor deletado id=${id}`)),
+      catchError(this.handleError<Fornecedor>('deleteFornecedor'))
+      );
+    }
+
+    /** POST: add a new Fornecedor to the server */
+    addFornecedor(fornecedor: Fornecedor): Observable<Fornecedor> {
+      return this.http
+        .post<Fornecedor>(this.api + '/add', fornecedor, this.httpOptions)
+        .pipe(
+          tap((novoFornecedor: Fornecedor) =>
+            this.log(`fornecedor adicionado com id=${novoFornecedor.id}`)
+          ),
+          catchError(this.handleError<Fornecedor>('addFornecedor'))
+        );
+    }
 
   /**
    * Handle Http operation that failed.
@@ -49,4 +87,5 @@ import { catchError, map, tap } from 'rxjs/operators';
   private log(message: string) {
     this.messageService.add(`FornecedorService: ${message}`);
   }
-}
+  
+  }
