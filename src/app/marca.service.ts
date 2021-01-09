@@ -76,13 +76,19 @@ export class MarcaService {
     }
     return this.http.get<Marca>(`${this.api}/find/${term}`).pipe(
       tap((x) => {
-          //console.log(x);
-          x!=null
+        //console.log(x);
+        x != null
           ? this.log(`marca retornada "${x.nome}"`)
           : this.log(`marca nao encontrada "${term}"`);
-        }
-      ),
+      }),
       catchError(this.handleError<Marca>('searchMarca', null))
+    );
+  }
+  /** PUT: update the marca on the server */
+  updateMarca(marca: Marca): Observable<any> {
+    return this.http.put(`${this.api}/update/${marca.id}`, marca, this.httpOptions).pipe(
+      tap((_) => this.log(`marca atualizada id=${marca.id}`)),
+      catchError(this.handleError<any>('updateMarca'))
     );
   }
 
