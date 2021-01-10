@@ -9,10 +9,26 @@ import { catchError, map, tap } from 'rxjs/operators';
     providedIn: 'root',
   })
   export class FormaPagamentoService {
-    private api = 'https://lojaunitspring.herokuapp.com/formapagamento/all';
+    //private api = 'https://lojaunitspring.herokuapp.com/formapagamento/all';
+    private api = 'https://lojaunitspring.herokuapp.com/formapagamento';
   
     httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    httpOptions2 = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        responseType: 'text' as 'json',
+      }),
+    };
+
+    httpOptionsPlain = {
+      headers: new HttpHeaders({
+        Accept: 'text/plain',
+        'Content-Type': 'text/plain',
+      }),
+      responseType: 'text',
     };
 
     constructor(
@@ -20,8 +36,8 @@ import { catchError, map, tap } from 'rxjs/operators';
         private messageService: MessageService
       ) {}
 
-      getFormaPagamento(): Observable<FormaPagamento[]> {console.log('a');
-    return this.http.get<FormaPagamento[]>(this.api).pipe(
+    getFormaPagamento(): Observable<FormaPagamento[]> {
+      return this.http.get<FormaPagamento[]>(this.api + '/all').pipe(
       tap((_) => this.log('Forma de Pagamento recuperadas')),
       catchError(this.handleError<FormaPagamento[]>('getFormaPagamento', []))
     );
@@ -35,6 +51,18 @@ import { catchError, map, tap } from 'rxjs/operators';
       tap((_) => this.log(`Forma de Pagamento deletada id=${id}`)),
       catchError(this.handleError<FormaPagamento>('deleteFormaPagamento'))
     );
+  }
+
+  /** POST: add a new forma de pagamento to the server */
+  addFormaPagamento(formaPagamento: FormaPagamento): Observable<FormaPagamento> {
+    return this.http
+      .post<FormaPagamento>(this.api + '/add', formaPagamento, this.httpOptions)
+      .pipe(
+        tap((novaFormaPagamento: FormaPagamento) =>
+          this.log(`forma de pagamento adicionada com id=${novaFormaPagamento.id}`)
+        ),
+        catchError(this.handleError<FormaPagamento>('addFormaPagamento'))
+      );
   }
 
   /**
