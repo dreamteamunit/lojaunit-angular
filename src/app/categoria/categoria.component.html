@@ -9,6 +9,22 @@
 </ul>
 -->
 
+<h2>Categorias</h2>
+<div>
+  <label>Nome:
+    <input #categoriaNome />
+  </label><br>
+  <label>Ativo?:
+    <input #categoriaAtivo type="checkbox" />
+  </label><br>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(categoriaNome.value,categoriaAtivo.value); 
+  categoriaNome.value='';categoriaAtivo.value='';" class="btn btn-success">
+    Adicionar
+  </button>
+</div>
+
+
 <div class="container row">
     <h2>Categorias</h2>
     <hr />
@@ -69,6 +85,10 @@
                             <input type="checkbox" class="form-check-label"> Ativo?
                         </label>
                     </div>
+                    <button (click)="add(categoriaNome.value,categoriaAtivo.value); 
+                    categoriaNome.value='';categoriaAtivo.value='';" class="btn btn-success">
+                      Adicionar
+                  </button>
                 </form>
             </div>
         </div>

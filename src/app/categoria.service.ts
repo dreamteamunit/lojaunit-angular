@@ -9,10 +9,26 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class CategoriaService {
-  private api = 'https://lojaunitspring.herokuapp.com/categoria/all';
+  //private api = 'https://lojaunitspring.herokuapp.com/categoria/all';
+  private api = 'https://lojaunitspring.herokuapp.com/categoria';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
+  httpOptions2 = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      responseType: 'text' as 'json',
+    }),
+  };
+
+  httpOptionsPlain = {
+    headers: new HttpHeaders({
+      Accept: 'text/plain',
+      'Content-Type': 'text/plain',
+    }),
+    responseType: 'text',
   };
 
   constructor(
@@ -20,8 +36,8 @@ export class CategoriaService {
     private messageService: MessageService
   ) {}
 
-  getCategoria(): Observable<Categoria[]> {console.log('a');
-    return this.http.get<Categoria[]>(this.api).pipe(
+  getCategoria(): Observable<Categoria[]> {
+    return this.http.get<Categoria[]>(this.api + '/all').pipe(
       tap((_) => this.log('categorias recuperadas')),
       catchError(this.handleError<Categoria[]>('getCategoria', []))
     );
@@ -35,6 +51,18 @@ export class CategoriaService {
       tap((_) => this.log(`categoria deletada id=${id}`)),
       catchError(this.handleError<Categoria>('deleteCategoria'))
     );
+  }
+  
+  /** POST: add a new categoria to the server */
+  addCategoria(categoria: Categoria): Observable<Categoria> {
+    return this.http
+      .post<Categoria>(this.api + '/add', categoria, this.httpOptions)
+      .pipe(
+        tap((novaCategoria: Categoria) =>
+          this.log(`categoria adicionada com id=${novaCategoria.id}`)
+        ),
+        catchError(this.handleError<Categoria>('addCategoria'))
+      );
   }
 
   /**

@@ -30,5 +30,15 @@ export class CategoriaComponent implements OnInit {
     delete(categoria: Categoria): void {
         this.categorias = this.categorias.filter((h) => h !== categoria);
         this.CategoriaService.deleteCategoria(categoria).subscribe();
-      }
+    }
+
+    add(nome: string, ativo: boolean): void {
+        nome = nome.trim();
+        if (!nome && !ativo) {
+          return;
+        }
+        this.CategoriaService.addCategoria({ nome, ativo } as Categoria).subscribe((categoria) => {
+          this.categorias.push(categoria);
+        });
+    }
 }
