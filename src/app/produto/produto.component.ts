@@ -4,6 +4,10 @@ import { Produto } from '../produto';
 import { ProdutoService } from '../produto.service';
 import { MessageService } from '../message.service';
 
+import { Categoria } from '../categoria';
+import { Fornecedor } from '../fornecedor';
+import { Marca } from '../marca';
+
 @Component({
     selector: 'app-produto',
     templateUrl: './produto.component.html',
@@ -23,13 +27,26 @@ export class ProdutoComponent implements OnInit {
     }
 
     getProduto(): void {
-        this.ProdutoService
-        .getProduto()
-        .subscribe((produto) => {
-            console.log(produto);
-            this.produtos = produto;
-            console.log('ok');
-            console.log(this.produtos)
+        this.ProdutoService.getProduto().subscribe((produto) => (this.produtos = produto));
+    }
+
+    delete(produto: Produto): void {
+        this.produtos = this.produtos.filter((h) => h !== produto);
+        this.ProdutoService.deleteProduto(produto).subscribe();
+    }
+
+    add(nome: string,descricao: string,precoUnitario: number,unidade: string,categoria: Categoria,fornecedor: Fornecedor,marca: Marca): void {
+        nome = nome.trim();
+        /*descricao = descricao.trim();
+        unidade = unidade.trim();*/
+        categoria = categoria;
+        fornecedor = fornecedor;
+        marca = marca;
+        if (!nome && !categoria && !fornecedor && !marca) {
+            return;
+        }
+        this.ProdutoService.addProduto({ nome, descricao } as Produto).subscribe((produto) => {
+            this.produtos.push(produto);
         });
     }
 }

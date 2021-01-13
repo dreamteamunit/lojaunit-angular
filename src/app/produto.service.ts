@@ -9,10 +9,26 @@ import { catchError, map, tap } from 'rxjs/operators';
     providedIn: 'root',
   })
   export class ProdutoService {
-    private api = 'https://lojaunitspring.herokuapp.com/produto/all';
+    //private api = 'https://lojaunitspring.herokuapp.com/produto/all';
+    private api = 'https://lojaunitspring.herokuapp.com/produto';
   
     httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    httpOptions2 = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        responseType: 'text' as 'json',
+      }),
+    };
+
+    httpOptionsPlain = {
+      headers: new HttpHeaders({
+        Accept: 'text/plain',
+        'Content-Type': 'text/plain',
+      }),
+      responseType: 'text',
     };
 
     constructor(
@@ -20,11 +36,33 @@ import { catchError, map, tap } from 'rxjs/operators';
         private messageService: MessageService
       ) {}
 
-      getProduto(): Observable<Produto[]> {console.log('a');
-    return this.http.get<Produto[]>(this.api).pipe(
-      tap((_) => this.log('Produtos recuperados')),
-      catchError(this.handleError<Produto[]>('getProduto', []))
+    getProduto(): Observable<Produto[]> {
+      return this.http.get<Produto[]>(this.api + '/all').pipe(
+        tap((_) => this.log('Produtos recuperados')),
+        catchError(this.handleError<Produto[]>('getProduto', []))
     );
+  }
+
+  deleteProduto(produto: Produto | number): Observable<Produto> {
+    const id = typeof produto === 'number' ? produto : produto.id;
+    const url = `${this.api}/delete/${id}`;
+
+    return this.http.delete<Produto>(url, this.httpOptions).pipe(
+      tap((_) => this.log(`produto deletado id=${id}`)),
+      catchError(this.handleError<Produto>('deleteProduto'))
+    );
+  }
+
+  /** POST: add a new produto to the server */
+  addProduto(produto: Produto): Observable<Produto> {
+    return this.http
+      .post<Produto>(this.api + '/add', produto, this.httpOptions)
+      .pipe(
+        tap((novaProduto: Produto) =>
+          this.log(`produto adicionado com id=${novaProduto.id}`)
+        ),
+        catchError(this.handleError<Produto>('addProduto'))
+      );
   }
 
   /**
