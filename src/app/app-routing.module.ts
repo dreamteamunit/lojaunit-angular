@@ -7,6 +7,7 @@ import { FormaPagamentoComponent } from './formaPagamento/formaPagamento.compone
 import { ProdutoComponent } from './produto/produto.component'
 import { CategoriaComponent } from './categoria/categoria.component'
 import { MarcaDetailComponent } from './marca-detail/marca-detail.component'
+import { QuemsomosComponent } from './quemsomos/quemsomos.component'
 
 
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
     component: ProdutoComponent,
   },
   { path: 'marca/detail/:id', component: MarcaDetailComponent },
+  { path: '', component: QuemsomosComponent },
 ];
 
 @NgModule({

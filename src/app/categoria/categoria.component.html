@@ -55,7 +55,7 @@
                     <tr *ngFor="let cat of categorias">
                       <th scope="row">{{cat.id}}</th>
                       <td scope="row">{{cat.nome}}</td>
-                      <td>{{car.ativo}}</td>
+                      <td>{{cat.ativo}}</td>
                       <td><i class="icon-remove"><button class="delete" title="Apagar categoria"
                         (click)="delete(cat)">x</button></i></td>
                     </tr>
