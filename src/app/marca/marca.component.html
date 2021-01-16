@@ -1,95 +1,39 @@
-<h2>Marcas</h2>
-<div>
-  <label>Nome:
-    <input #marcaNome />
-  </label><br>
-  <label>Descrição:
-    <input #marcaDesc />
-  </label><br>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(marcaNome.value,marcaDesc.value); 
-    marcaNome.value='';marcaDesc.value=''">
-    Adicionar
-  </button>
-</div>
-<!-- 
-<ul class="marcas">
-    <li *ngFor="let marc of marcas">
-        <a routerLink="/marca/detail/{{marc.id}}">
-            <span class="badge">{{marc.id}}</span> {{marc.nome}}
-        </a>
-         <button class="delete" title="Apagar marca"
-         (click)="delete(marc)">x</button>
-    </li>
-</ul>
--->
-<app-marca-search></app-marca-search>
+<h2>CRUD Marcas</h2>
+<hr />
 
-<div class="container row">
-  <h2>Marcas</h2>
-  <hr />
-</div>
+<h4>Cadastrar Marca</h4>
 
-<div class="container">
-  <div class="row">
-    <div id="accordion" role="tablist">
-      <div class="card">
-        <div class="card-header" role="tab" id="botoes-cabecalho">
-          <h5 class="mb-0">
-            <a data-toggle="collapse" data-parent="#accordion" href="#listar-marcas"> Listar Marcas </a>
-          </h5>
-          <div id="listar-marcas" class="collpase" role="tabpanel">
-            <div class="card-block">
-              <div class="container row">
-                <hr />
-                <table class="table table-sm table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">#Id</th>
-                      <th scope="col">Nome</th>
-                      <th scope="col">Descrição</th>
-                      <th scope="col">Remove</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let marc of marcas">
-                      <th scope="row">{{marc.id}}</th>
-                      <td scope="row">{{marc.nome}}</td>
-                      <td>{{marc.descricao}}</td>
-                      <td><i class="icon-remove"><button class="delete" title="Apagar marca"
-                        (click)="delete(marc)">x</button></i></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" role="tab" id="form-basico-cabecalho">
-            <h5 class="mb-0">
-                <a data-toggle="collapse" data-parent="#accordion" href="#cadastrar-marcas"> Cadastrar Marcas </a>
-            </h5>
-        </div>
-        <div id="cadastrar-marcas" class="collapse" role="tabpanel">
-            <div class="card-block">
-                <form>
-                    <div class="form-group">
-                        <label for="txt-nome"> Nome: </label>
-                        <input type="text" id="txt-nome" class="form-control"
-                            placeholder="Insira seu nome...">
-                    </div>
-                    <div class="form-group">
-                        <label for="txt-descricao"> Descrição: </label>
-                        <input type="text" id="txt-descricao" class="form-control"
-                            placeholder="Insira sua descricao...">
-                    </div>
-                    <button (click)="add(marcaNome.value,marcaDesc.value); 
-                    marcaNome.value='';marcaDesc.value=''"  type="button" class="btn btn-success"> Adicionar </button>
-                </form>
-            </div>
-        </div>
+<form class="cadastro">
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Nome da Marca" #marcaNome />
     </div>
-  </div>
-</div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Descrição da Marca" #marcaDescricao/>
+    </div>
+  </div> <br />
+  <button (click)="add(marcaNome.value,marcaDescricao.value); marcaNome.value='';marcaDescricao.value=''"> Adicionar </button>
+</form>
+<hr />
+<h4>Listar/Apagar Marca</h4>
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Apagar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let marc of marcas">
+      <th scope="row">{{marc.id}}</th>
+      <td scope="row">{{marc.nome}}</td>
+      <td>{{marc.descricao}}</td>
+      <td><i class="icon-remove"> <button class="delete" title="Apagar Marca"
+        (click)="delete(marc)">x</button> </i></td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<!-- <app-marca-search></app-marca-search> -->

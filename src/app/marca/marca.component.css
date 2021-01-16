@@ -64,9 +64,23 @@ button:hover {
 }
 
 button.delete {
-  position: relative;
+  /*position: relative;
   left: 194px;
-  top: -32px;
-  background-color: gray !important;
+  top: -32px;*/
+  background-color: rgb(247, 63, 63) !important;
   color: white;
+}
+
+table {
+  width: 90%;
+  margin: 20px;
+}
+
+.cadastro {
+  width: 90%;
+  padding: 20px;
+}
+
+h2, h4 {
+  padding: 10px;
 }
