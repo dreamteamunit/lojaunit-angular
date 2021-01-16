@@ -1,139 +1,56 @@
-<h2>Produtos</h2>
-<div>
-    <label>Nome:
-      <input #produtoNome />
-    </label><br>
-    <label>Descrição:
-      <input #produtoDescricao />
-    </label><br>
-    <label>Preço Unitário:
-        <input #produtoPreco />
-      </label><br>
-      <label>Unidade:
-        <input #produtoUnidade />
-      </label><br>
-      <label>Categoria:
-        <input #produtoCategoria />
-      </label><br>
-      <label>Fornecedor:
-        <input #produtoFornecedor />
-      </label><br>
-      <label>Marca:
-        <input #produtoMarca />
-      </label><br>
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="add(produtoNome.value,produtoDescricao.value,produtoPreco.value,produtoUnidade.value,produtoCategoria.value,produtoFornecedor.value,produtoMarca.value); 
-    produtoNome.value='';produtoDescricao.value='';produtoPreco.value='';produtoUnidade.value='';produtoCategoria.value='';produtoFornecedor.value='';produtoMarca.value=''">
-      Adicionar
-    </button>
-  </div>
+<h2>CRUD Produtos</h2>
+<hr />
 
-<!-- 
-<h2>Produtos</h2>
-<ul class="produtos">
-    <li *ngFor="let produto of produtos">
-        <a routerLink="/detail/{{produto.id}}">
-            <span class="badge">{{produto.id}}</span> {{produto.nome}}
-        </a>
-    </li>
-</ul>
--->
-<div class="container row">
-    <h2>Produtos</h2>
-    <hr />
-  </div>
-  
-  <div class="container">
-    <div class="row">
-      <div id="accordion" role="tablist">
-        <div class="card">
-          <div class="card-header" role="tab" id="botoes-cabecalho">
-            <h5 class="mb-0">
-              <a data-toggle="collapse" data-parent="#accordion" href="#listar-produtos"> Listar Produtos </a>
-            </h5>
-            <div id="listar-produtos" class="collpase" role="tabpanel">
-              <div class="card-block">
-                <div class="container row">
-                  <hr />
-                  <table class="table table-sm table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">#Id</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Preço Unitário</th>
-                        <th scope="col">Unidade</th>
-                        <th scope="col">Remove</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let produto of produtos">
-                        <th scope="row">{{produto.id}}</th>
-                        <td>{{produto.nome}}</td>
-                        <td>{{produto.descricao}}</td>
-                        <th>{{produto.precoUnitario}}</th>
-                        <td>{{produto.unidade}}</td>
-                        <td><i class="icon-remove"><button class="delete" title="Apagar produto"
-                          (click)="delete(marc)">x</button></i></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" role="tab" id="form-basico-cabecalho">
-              <h5 class="mb-0">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#cadastrar-produtos"> Cadastrar Produtos </a>
-              </h5>
-          </div>
-          <div id="cadastrar-produtos" class="collapse" role="tabpanel">
-              <div class="card-block">
-                  <form>
-                      <div class="form-group">
-                          <label for="txt-nome"> Nome: </label>
-                          <input type="text" id="txt-nome" class="form-control"
-                              placeholder="Insira seu nome...">
-                      </div>
-                      <div class="form-group">
-                          <label for="txt-descricao"> Descrição: </label>
-                          <input type="text" id="txt-descricao" class="form-control"
-                              placeholder="Insira sua descricao...">
-                      </div>
-                      <div class="form-group">
-                          <label for="txt-preco"> Preço Unitário: </label>
-                          <input type="text" id="txt-preco" class="form-control"
-                            placeholder="Insira seu preço...">
-                      </div>
-                      <div class="form-group">
-                          <label for="txt-unidade"> Unidade: </label>
-                          <input type="text" id="txt-unidade" class="form-control"
-                            placeholder="Insira sua unidade...">
-                      </div>
-                      <div class="form-group">
-                        <label for="txt-categoria"> Categoria: </label>
-                        <input type="text" id="txt-categoria" class="form-control"
-                            placeholder="Insira sua categoria...">
-                    </div>
-                    <div class="form-group">
-                        <label for="txt-fornecedor"> Fornecedor: </label>
-                        <input type="text" id="txt-fornecedor" class="form-control"
-                          placeholder="Insira seu fornecedor...">
-                    </div>
-                    <div class="form-group">
-                        <label for="txt-marca"> Marca: </label>
-                        <input type="text" id="txt-marca" class="form-control"
-                          placeholder="Insira sua marca...">
-                    </div>
-                      <button (click)="add(produtoNome.value,produtoDescricao.value,produtoPreco.value,produtoUnidade.value,produtoCategoria.value,produtoFornecedor.value,produtoMarca.value); 
-                      produtoNome.value='';produtoDescricao.value='';produtoPreco.value='';produtoUnidade.value='';produtoCategoria.value='';produtoFornecedor.value='';produtoMarca.value=''" 
-                      type="button" class="btn btn-success"> Adicionar </button>
-                  </form>
-              </div>
-          </div>
-      </div>
+<h4>Cadastrar Produto</h4>
+
+<form class="cadastro">
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Nome do Produto" #produtoNome />
     </div>
-  </div>
-  
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Descrição do Produto" #produtoDescricao/>
+    </div>
+    <div class="col">
+      <input type="number" class="form-control" placeholder="Preço Unitário" #produtoPreco/>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Unidade de Medida" #produtoUnidade/>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="ID de Categoria " #produtoCategoria/>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="ID de Fornecedor" #produtoFornecedor/>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="ID de Marca" #produtoMarca/>
+    </div>
+  </div> <br />
+  <button (click)="add(produtoNome.value,produtoDescricao.value,produtoPreco.value,produtoUnidade.value,produtoCategoria.value,produtoFornecedor.value,produtoMarca.value); produtoNome.value='';produtoDescricao.value='';produtoPreco.value='';produtoUnidade.value='';produtoCategoria.value='';produtoFornecedor.value='';produtoMarca.value=''" class="btn btn-success"> Adicionar </button>
+</form>
+<hr />
+<h4>Listar/Apagar Produtos</h4>
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Preço Unitário</th>
+      <th scope="col">Unidade</th>
+      <th scope="col">Apagar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produto of produtos">
+      <th scope="row">{{produto.id}}</th>
+      <td>{{produto.nome}}</td>
+      <td>{{produto.descricao}}</td>
+      <th>{{produto.precoUnitario}}</th>
+      <td>{{produto.unidade}}</td>
+      <td><i class="icon-remove"><button class="delete btn btn-danger" title="Apagar produto"
+        (click)="delete(marc)">x</button></i></td>
+    </tr>
+  </tbody>
+</table>
