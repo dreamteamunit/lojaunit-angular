@@ -1,106 +1,43 @@
-<!-- 
-<h2>Formas de Pagamento</h2>
-<ul class="formaPagamento">
-    <li *ngFor="let forma of formasPagamento">
-        <a routerLink="/detail/{{forma.id}}">
-          <span class="badge">{{forma.id}}</span> {{forma.forma}}
-        </a>
-      </li>
-</ul>
--->
+<h2>CRUD Formas de Pagamento</h2>
+<hr />
 
-<h2>Forma de Pagamento</h2>
-<div>
-  <label>Forma:
-    <input #formaPagamentoForma />
-  </label><br>
-  <label>Descrição:
-    <input #formaPagamentoDescricao />
-  </label><br>
-  <label>Ativo?:
-    <input #formaPagamentoAtivo type="checkbox" />
-  </label><br>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(formaPagamentoForma.value,formaPagamentoDescricao.value,formaPagamentoAtivo.value); 
-  formaPagamentoForma.value='';formaPagamentoDescricao.value='';formaPagamentoAtivo.value='';">
-    Adicionar
-  </button>
-</div>
+<h4>Cadastrar Forma de Pagamento</h4>
 
-<div class="container row">
-  <h2>Formas de Pagamento</h2>
-  <hr />
-</div>
-
-<div class="container">
-<div class="row">
-  <div id="accordion" role="tablist">
-    <div class="card">
-      <div class="card-header" role="tab" id="botoes-cabecalho">
-        <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#accordion" href="#listar-formaPagamento"> Listar Formas de Pagamento </a>
-        </h5>
-        <div id="listar-formaPagamento" class="collpase" role="tabpanel">
-          <div class="card-block">
-            <div class="container row">
-              <hr />
-              <table class="table table-sm table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">#Id</th>
-                    <th scope="col">Forma</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Ativo</th>
-                    <th scope="col">Remove</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let forma of formasPagamento">
-                    <th scope="row">{{forma.id}}</th>
-                    <td scope="row">{{forma.forma}}</td>
-                    <td>{{forma.descricao}}</td>
-                    <td>{{forma.ativo}}</td>
-                    <td><i class="icon-remove"><button class="delete" title="Apagar formaPagamento"
-                      (click)="delete(forma)">x</button></i></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+<form class="cadastro">
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Nome da Forma de Pagamento" #formaPagamentoForma />
     </div>
-    <div class="card">
-      <div class="card-header" role="tab" id="form-basico-cabecalho">
-          <h5 class="mb-0">
-              <a data-toggle="collapse" data-parent="#accordion" href="#cadastrar-formaPagamento"> Cadastrar Formas de Pagamento </a>
-          </h5>
-      </div>
-      <div id="cadastrar-formaPagamento" class="collapse" role="tabpanel">
-          <div class="card-block">
-              <form>
-                  <div class="form-group">
-                      <label for="txt-forma"> Forma: </label>
-                      <input type="text" id="txt-forma" class="form-control"
-                          placeholder="Insira sua forma de pagamento...">
-                  </div>
-                  <div class="form-group">
-                      <label for="txt-cpf"> Descrição: </label>
-                      <input type="text" id="txt-cpf" class="form-control"
-                          placeholder="Insira seu cpf...">
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-label"> Ativo?
-                    </label>
-                </div>
-                <button (click)="add(formaPagamentoForma.value,formaPagamentoDescricao.value,formaPagamentoAtivo.value); 
-                formaPagamentoForma.value='';formaPagamentoDescricao.value='';formaPagamentoAtivo.value='';">
-                  Adicionar
-                </button>
-              </form>
-          </div>
-      </div>
-  </div>
-</div>
-</div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Descricao da Forma de Pagamento" #formaPagamentoDescricao/>
+    </div>
+    <div class="col">
+      <input type="checkbox" class="form-control" #formaPagamentoAtivo/>
+    </div>
+  </div> <br />
+  <button (click)="add(formaPagamentoForma.value,formaPagamentoDescricao.value,formaPagamentoAtivo.value); formaPagamentoForma.value='';formaPagamentoDescricao.value='';formaPagamentoAtivo.value=''" class="btn btn-success"> Adicionar </button>
+</form>
+<hr />
+<h4>Listar/Apagar Formas de Pagamento</h4>
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">Forma</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Ativo</th>
+      <th scope="col">Apagar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forma of formasPagamento">
+      <th scope="row">{{forma.id}}</th>
+      <td scope="row">{{forma.forma}}</td>
+      <td>{{forma.descricao}}</td>
+      <td>{{forma.ativo}}</td>
+      <td><i class="icon-remove"><button class="delete btn btn-danger" title="Apagar formaPagamento"
+        (click)="delete(forma)">x</button></i></td>
+    </tr>
+  </tbody>
+</table>
+
