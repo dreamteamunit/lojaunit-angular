@@ -12,7 +12,7 @@
       <input type="text" class="form-control" placeholder="Descrição da Marca" #marcaDescricao/>
     </div>
   </div> <br />
-  <button (click)="add(marcaNome.value,marcaDescricao.value); marcaNome.value='';marcaDescricao.value=''"> Adicionar </button>
+  <button (click)="add(marcaNome.value,marcaDescricao.value); marcaNome.value='';marcaDescricao.value=''" class="btn btn-success"> Adicionar </button>
 </form>
 <hr />
 <h4>Listar/Apagar Marca</h4>
@@ -30,7 +30,7 @@
       <th scope="row">{{marc.id}}</th>
       <td scope="row">{{marc.nome}}</td>
       <td>{{marc.descricao}}</td>
-      <td><i class="icon-remove"> <button class="delete" title="Apagar Marca"
+      <td><i class="icon-remove"> <button class="delete btn btn-danger" title="Apagar Marca"
         (click)="delete(marc)">x</button> </i></td>
     </tr>
   </tbody>

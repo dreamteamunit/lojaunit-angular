@@ -50,7 +50,7 @@
   border-radius: 4px 0 0 4px;
 }
 
-button {
+/*button {
   background-color: #eee;
   border: none;
   padding: 5px 10px;
@@ -64,12 +64,12 @@ button:hover {
 }
 
 button.delete {
-  /*position: relative;
+  position: relative;
   left: 194px;
-  top: -32px;*/
+  top: -32px;
   background-color: rgb(247, 63, 63) !important;
   color: white;
-}
+}*/
 
 table {
   width: 90%;
