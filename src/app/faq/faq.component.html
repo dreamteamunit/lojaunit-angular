@@ -1,0 +1,43 @@
+<h2>CRUD Faq's</h2>
+<hr />
+
+<h4>Cadastrar Faq</h4>
+
+<form class="cadastro">
+  <div class="form-row">
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Data/Hora" #faqDatahora />
+      </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Texto Faq do Produto" #faqTexto />
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="ID do Produto" #faqProduto/>
+    </div>
+  </div> <br />
+  <button (click)="add(faqDatahora.value,faqTexto.value,faqProduto.value); faqDatahora.value='';faqTexto.value='';faqProduto.value=''" class="btn btn-success"> Adicionar </button>
+</form>
+<hr />
+<h4>Listar/Apagar Faq</h4>
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">Data</th>
+      <th scope="col">Texto</th>
+      <th scope="col">Produto</th>
+      <th scope="col">Apagar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let faq of faqs">
+      <th scope="row">{{faq.id}}</th>
+      <td scope="row">{{faq.datahora}}</td>
+      <td>{{faq.texto}}</td>
+      <td>{{faq.produto}}</td>
+      <td><i class="icon-remove"> <button class="delete btn btn-danger" title="Apagar Faq"
+        (click)="delete(faq)">x</button> </i></td>
+    </tr>
+  </tbody>
+</table>
+

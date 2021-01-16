@@ -16,9 +16,10 @@ import { MarcaDetailComponent } from './marca-detail/marca-detail.component';
 import { MarcaSearchComponent } from './marca-search/marca-search.component';
 import { QuemsomosComponent } from './quemsomos/quemsomos.component';
 import { AdminComponent } from './admin/admin.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
-  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent, FormaPagamentoComponent,ProdutoComponent, MarcaDetailComponent, MarcaSearchComponent, QuemsomosComponent, AdminComponent],
+  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent, FormaPagamentoComponent,ProdutoComponent, MarcaDetailComponent, MarcaSearchComponent, QuemsomosComponent, AdminComponent, FaqComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

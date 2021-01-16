@@ -8,6 +8,7 @@ import { ProdutoComponent } from './produto/produto.component'
 import { CategoriaComponent } from './categoria/categoria.component'
 import { MarcaDetailComponent } from './marca-detail/marca-detail.component'
 import { QuemsomosComponent } from './quemsomos/quemsomos.component'
+import { FaqComponent } from './faq/faq.component'
 
 
 const routes: Routes = [
@@ -35,8 +36,18 @@ const routes: Routes = [
     path: 'produto',
     component: ProdutoComponent,
   },
-  { path: 'marca/detail/:id', component: MarcaDetailComponent },
-  { path: '', component: QuemsomosComponent },
+  {
+    path: 'marca/detail/:id',
+    component: MarcaDetailComponent
+  },
+  {
+    path: '',
+    component: QuemsomosComponent
+  },
+  {
+    path: 'faq',
+    component: FaqComponent
+  },
 ];
 
 @NgModule({
