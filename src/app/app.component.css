@@ -82,6 +82,16 @@ nav a.active {
   color: #039be5;
 }
 
+
+.endereco {
+  /*border: 1px solid rgba(0, 183, 255, 0.6);*/
+  margin: 0;
+}
+
+.contato {
+  padding: 20px;
+}
+
 .rodape{
   width: 100%;
   float: left;
