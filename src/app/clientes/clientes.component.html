@@ -7,24 +7,34 @@
   <div class="form-row">
     <div class="col">
         <input type="text" class="form-control" placeholder="Nome do Cliente" #clienteNome />
-      </div>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="E-mail do Cliente" #clienteEmail />
+    </div>
+  </div>
+  <div class="form-row">
     <div class="col">
       <input type="text" class="form-control" placeholder="CPF do Cliente" #clienteCpf />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="E-mail do Cliente" #clienteEmail/>
+      <input type="text" class="form-control" placeholder="Telefone do Cliente" #clienteTelefone />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Sexo do Cliente" #clienteSexo/>
+      <input type="text" class="form-control" placeholder="Apelido do Cliente" #clienteApelido />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Telefone do Cliente" #clienteTelefone/>
+      <input type="text" class="form-control" placeholder="Nome Social do Cliente" #clienteNomeSocial />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Sexo do Cliente" #clienteSexo />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Data de Nascimento do Cliente" #clienteDataNascimento/>
+      <input type="date" class="form-control" placeholder="Data de Nascimento do Cliente" #clienteDataNascimento />
     </div>
   </div> <br />
-  <button (click)="add(clienteNome.value,clienteCpf.value,clienteEmail.value,clienteSexo.value,clienteTelefone.value,clienteDataNascimento.value); clienteNome.value='';clienteCpf.value='';clienteEmail.value='';clienteSexo.value='';clienteTelefone.value='';clienteDataNascimento.value='';" class="btn btn-success"> Adicionar </button>
+  <button (click)="add(clienteNome.value,clienteCpf.value,clienteEmail.value,clienteDataNascimento.value,clienteSexo.value,clienteNomeSocial.value,clienteApelido.value,clienteTelefone.value); clienteNome.value='';clienteCpf.value='';clienteEmail.value='';clienteDataNascimento.value='';clienteSexo.value='';clienteNomeSocial.value='';clienteApelido.value='';clienteTelefone.value=''" class="btn btn-success"> Adicionar </button>
 </form>
 <hr />
 <h4>Listar/Apagar Cliente</h4>
@@ -35,9 +45,11 @@
       <th scope="col">Nome</th>
       <th scope="col">CPF</th>
       <th scope="col">E-mail</th>
-      <th scope="col">Sexo</th>
-      <th scope="col">Telefone</th>
       <th scope="col">Data de Nascimento</th>
+      <th scope="col">Sexo</th>
+      <th scope="col">Nome Social</th>
+      <th scope="col">Apelido</th>
+      <th scope="col">Telefone</th>
       <th scope="col">Apagar</th>
     </tr>
   </thead>
@@ -47,9 +59,11 @@
       <td scope="row">{{cliente.nome}}</td>
       <td>{{cliente.cpf}}</td>
       <td>{{cliente.email}}</td>
-      <td>{{cliente.sexo}}</td>
-      <td>{{cliente.telefone}}</td>
       <td>{{cliente.dataNascimento}}</td>
+      <td>{{cliente.sexo}}</td>
+      <td>{{cliente.nomeSocial}}</td>
+      <td>{{cliente.apelido}}</td>
+      <td>{{cliente.telefone}}</td>
       <td><i class="icon-remove"><button class="delete btn btn-danger" title="Apagar Cliente"
         (click)="delete(cliente)">x</button></i></td>
     </tr>

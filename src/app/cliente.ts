@@ -3,7 +3,9 @@ export interface Cliente {
   nome?: string;
   cpf?: string;
   email?: string;
-  sexo?: string;
-  telefone?: string;
   dataNascimento?: Date;
+  sexo?: string;
+  nomeSocial?: string;
+  apelido?: string;
+  telefone?: string;
 }

@@ -31,13 +31,15 @@ export class ClientesComponent implements OnInit {
     this.clienteService.deleteCliente(cliente).subscribe();
   }
 
-  add(nome: string, cpf: string, email: string, sexo: string, telefone: string, dataNascimento: Date): void {
+  add(nome: string, cpf: string, email: string, dataNascimento: Date, sexo: string, nomeSocial: string, apelido: string, telefone: string): void {
     nome = nome.trim();
     cpf = cpf.trim();
     email = email.trim();
     //sexo = sexo.trim();
     //telefone = telefone.trim();
     //dataNascimento = dataNascimento.trim();
+    //nomeSocial = nomeSocial.trim();
+    //apelido = apelido.trim();
     if (!nome && !cpf && !email) {
       return;
     }
