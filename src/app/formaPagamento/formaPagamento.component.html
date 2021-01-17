@@ -9,10 +9,16 @@
       <input type="text" class="form-control" placeholder="Nome da Forma de Pagamento" #formaPagamentoForma />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Descricao da Forma de Pagamento" #formaPagamentoDescricao/>
+      <input type="text" class="form-control" placeholder="Descricao da Forma de Pagamento" #formaPagamentoDescricao />
     </div>
-    <div class="col">
-      <input type="checkbox" class="form-control" #formaPagamentoAtivo/>
+  </div>
+  <br />
+  <div class="form-row">
+    <div class="col-1">
+      Ativo?
+    </div>
+    <div class="col-1">
+      <input type="radio" class="form-control" #formaPagamentoAtivo name="ativo" />
     </div>
   </div> <br />
   <button (click)="add(formaPagamentoForma.value,formaPagamentoDescricao.value,formaPagamentoAtivo.value); formaPagamentoForma.value='';formaPagamentoDescricao.value='';formaPagamentoAtivo.value=''" class="btn btn-success"> Adicionar </button>

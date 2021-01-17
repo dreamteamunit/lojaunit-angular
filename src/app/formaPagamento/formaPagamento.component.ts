@@ -38,6 +38,15 @@ export class FormaPagamentoComponent implements OnInit {
         if (!forma && !ativo) {
           return;
         }
+
+        let check = (<HTMLInputElement>document.querySelector('input[name="ativo"]:checked')).value;
+
+        if(check == "on"){
+            ativo = true;
+        } else {
+            ativo = false;
+        }
+
         this.FormaPagamentoService.addFormaPagamento({ forma, descricao, ativo } as FormaPagamento).subscribe((formaPagamento) => {
           this.formasPagamento.push(formaPagamento);
         });

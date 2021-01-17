@@ -37,6 +37,14 @@ export class CategoriaComponent implements OnInit {
         if (!nome && !ativo) {
           return;
         }
+
+        let check = (<HTMLInputElement>document.querySelector('input[name="ativo"]:checked')).value;
+
+        if(check == "on"){
+            ativo = true;
+        } else {
+            ativo = false;
+        }
         this.CategoriaService.addCategoria({ nome, ativo } as Categoria).subscribe((categoria) => {
           this.categorias.push(categoria);
         });

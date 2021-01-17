@@ -8,8 +8,14 @@
     <div class="col">
       <input type="text" class="form-control" placeholder="Nome da Categoria" #categoriaNome />
     </div>
-    <div class="col">
-      <input type="checkbox" class="form-control" #categoriaAtivo />
+  </div>
+  <br />
+  <div class="form-row">
+    <div class="col-1">
+      Ativo?
+    </div>
+    <div class="col-1">
+      <input type="radio" class="form-control" #categoriaAtivo name="ativo" />
     </div>
   </div> <br />
   <button (click)="add(categoriaNome.value,categoriaAtivo.value); categoriaNome.value='';categoriaAtivo.value=''" class="btn btn-success"> Adicionar </button>
