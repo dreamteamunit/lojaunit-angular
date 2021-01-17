@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Timestamp } from 'rxjs/internal/operators/timestamp';
 
 import { Faq } from '../faq';
 import { FaqService } from '../faq.service';
@@ -35,9 +36,14 @@ export class FaqComponent implements OnInit {
   add(datahora: Date,texto: string,produto: Produto): void {
     texto = texto.trim();
     
-    if (!datahora && !texto && !produto) {
+    datahora = new Date();
+
+    console.log(datahora);
+
+    if (!texto && !produto) {
       return;
     }
+
     this.FaqService.addFaq({ datahora, texto, produto } as Faq).subscribe((faq) => {
       this.faqs.push(faq);
     });
