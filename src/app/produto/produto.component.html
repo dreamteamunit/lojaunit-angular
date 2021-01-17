@@ -6,28 +6,40 @@
 <form class="cadastro">
   <div class="form-row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="Nome do Produto" #produtoNome />
+      <label for="nome">Nome Produto</label>
+      <input type="text" class="form-control" placeholder="Nome do Produto" #produtoNome id="nome" />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Descrição do Produto" #produtoDescricao/>
+      <label for="descricao">Descrição</label>
+      <input type="text" class="form-control" placeholder="Descrição do Produto" #produtoDescricao id="descricao" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <label for="preco">Preço Unitário</label>
+      <input type="number" class="form-control" placeholder="Preço Unitário" #produtoPreco id="preco" />
     </div>
     <div class="col">
-      <input type="number" class="form-control" placeholder="Preço Unitário" #produtoPreco/>
+      <label for="unidade">Unidade</label>
+      <input type="text" class="form-control" placeholder="Unidade de Medida" #produtoUnidade id="unidade" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <label for="categoria">Categoria</label>
+      <input type="text" class="form-control" placeholder="ID de Categoria " #produtoCategoria id="categoria" />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Unidade de Medida" #produtoUnidade/>
+      <label for="fornecedor">Fornecedor</label>
+      <input type="text" class="form-control" placeholder="ID de Fornecedor" #produtoFornecedor id="fornecedor" />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="ID de Categoria " #produtoCategoria/>
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="ID de Fornecedor" #produtoFornecedor/>
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="ID de Marca" #produtoMarca/>
+      <label for="marca">Marca</label>
+      <input type="text" class="form-control" placeholder="ID de Marca" #produtoMarca id="marca" />
     </div>
   </div> <br />
   <button (click)="add(produtoNome.value,produtoDescricao.value,produtoPreco.value,produtoUnidade.value,produtoCategoria.value,produtoFornecedor.value,produtoMarca.value); produtoNome.value='';produtoDescricao.value='';produtoPreco.value='';produtoUnidade.value='';produtoCategoria.value='';produtoFornecedor.value='';produtoMarca.value=''" class="btn btn-success"> Adicionar </button>
+  <input type="reset" value="Limpar" class="reset btn btn-warning" />
 </form>
 <hr />
 <h4>Listar/Apagar Produtos</h4>

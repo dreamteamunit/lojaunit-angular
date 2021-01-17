@@ -6,13 +6,16 @@
 <form class="cadastro">
   <div class="form-row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="Nome da Marca" #marcaNome />
+      <label for="nome">Nome Marca</label>
+      <input type="text" class="form-control" placeholder="Nome da Marca" #marcaNome required id="nome" />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Descrição da Marca" #marcaDescricao/>
+      <label for="descricao">Descrição</label>
+      <input type="text" class="form-control" placeholder="Descrição da Marca" #marcaDescricao id="descricao" />
     </div>
   </div> <br />
   <button (click)="add(marcaNome.value,marcaDescricao.value); marcaNome.value='';marcaDescricao.value=''" class="btn btn-success"> Adicionar </button>
+  <input type="reset" value="Limpar" class="reset btn btn-warning" />
 </form>
 <hr />
 <h4>Listar/Apagar Marca</h4>

@@ -6,35 +6,44 @@
 <form class="cadastro">
   <div class="form-row">
     <div class="col">
-        <input type="text" class="form-control" placeholder="Nome do Cliente" #clienteNome />
+      <label for="nome">Nome Completo</label>
+      <input type="text" class="form-control" placeholder="Nome do Cliente" #clienteNome required id="nome" />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="E-mail do Cliente" #clienteEmail />
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="CPF do Cliente" #clienteCpf />
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Telefone do Cliente" #clienteTelefone />
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Apelido do Cliente" #clienteApelido />
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Nome Social do Cliente" #clienteNomeSocial />
+      <label for="email">E-mail</label>
+      <input type="text" class="form-control" placeholder="E-mail do Cliente" #clienteEmail required id="email" />
     </div>
   </div>
   <div class="form-row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="Sexo do Cliente" #clienteSexo />
+      <label for="cpf">CPF</label>
+      <input type="text" class="form-control" placeholder="CPF do Cliente" #clienteCpf required id="cpf" />
     </div>
     <div class="col">
-      <input type="date" class="form-control" placeholder="Data de Nascimento do Cliente" #clienteDataNascimento />
+      <label for="telefone">Telefone</label>
+      <input type="text" class="form-control" placeholder="Telefone do Cliente" #clienteTelefone id="telefone" />
+    </div>
+    <div class="col">
+      <label for="apelido">Apelido</label>
+      <input type="text" class="form-control" placeholder="Apelido do Cliente" #clienteApelido id="apelido" />
+    </div>
+    <div class="col">
+      <label for="nomeSocial">Nome Social</label>
+      <input type="text" class="form-control" placeholder="Nome Social do Cliente" #clienteNomeSocial id="nomeSocial" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <label for="sexo">Sexo</label>
+      <input type="text" class="form-control" placeholder="Sexo do Cliente" #clienteSexo id="sexo" />
+    </div>
+    <div class="col">
+      <label for="dataNascimento">Data de Nascimento</label>
+      <input type="date" class="form-control" placeholder="Data de Nascimento do Cliente" #clienteDataNascimento id="dataNascimento" />
     </div>
   </div> <br />
   <button (click)="add(clienteNome.value,clienteCpf.value,clienteEmail.value,clienteDataNascimento.value,clienteSexo.value,clienteNomeSocial.value,clienteApelido.value,clienteTelefone.value); clienteNome.value='';clienteCpf.value='';clienteEmail.value='';clienteDataNascimento.value='';clienteSexo.value='';clienteNomeSocial.value='';clienteApelido.value='';clienteTelefone.value=''" class="btn btn-success"> Adicionar </button>
+  <input type="reset" value="Limpar" class="reset btn btn-warning" />
 </form>
 <hr />
 <h4>Listar/Apagar Cliente</h4>

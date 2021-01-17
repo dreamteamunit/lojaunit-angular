@@ -43,7 +43,7 @@ export class ClientesComponent implements OnInit {
     if (!nome && !cpf && !email) {
       return;
     }
-    this.clienteService.addCliente({ nome, cpf, email, sexo, telefone, dataNascimento } as Cliente).subscribe((cliente) => {
+    this.clienteService.addCliente({ nome, cpf, email, dataNascimento, sexo, nomeSocial, apelido, telefone } as Cliente).subscribe((cliente) => {
       this.clientes.push(cliente);
     });
   }

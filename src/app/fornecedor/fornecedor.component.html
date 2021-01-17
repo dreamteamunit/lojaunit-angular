@@ -6,22 +6,30 @@
 <form class="cadastro">
   <div class="form-row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="Nome do Fornecedor" #fornecedorNome />
+      <label for="nome">Nome Empresa</label>
+      <input type="text" class="form-control" placeholder="Nome do Fornecedor" #fornecedorNome required id="nome" />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Endereço do Fornecedor" #fornecedorEndereco/>
+      <label for="cnpj">CNPJ</label>
+      <input type="text" class="form-control" placeholder="CNPJ do Fornecedor" #fornecedorCnpj required id="cnpj" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <label for="endereco">Endereço</label>
+      <input type="text" class="form-control" placeholder="Endereço do Fornecedor" #fornecedorEndereco id="endereco" />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Telefone do Fornecedor" #fornecedorTelefone/>
+      <label for="telefone">Telefone</label>
+      <input type="text" class="form-control" placeholder="Telefone do Fornecedor" #fornecedorTelefone id="telefone" />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="CNPJ do Fornecedor" #fornecedorCnpj/>
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="E-mail do Fornecedor" #fornecedorEmail/>
+      <label for="email">E-mail</label>
+      <input type="text" class="form-control" placeholder="E-mail do Fornecedor" #fornecedorEmail id="email" />
     </div>
   </div> <br />
   <button (click)="add(fornecedorNome.value,fornecedorEndereco.value,fornecedorTelefone.value,fornecedorCnpj.value,fornecedorEmail.value); fornecedorNome.value='';fornecedorEndereco.value='';fornecedorTelefone.value='';fornecedorCnpj.value='';fornecedorEmail.value=''" class="btn btn-success"> Adicionar </button>
+  <input type="reset" value="Limpar" class="reset btn btn-warning" />
 </form>
 <hr />
 <h4>Listar/Apagar Fornecedores</h4>
