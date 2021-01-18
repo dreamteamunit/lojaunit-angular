@@ -1,0 +1,12 @@
+<div id="search-component">
+  <h4><label for="search-box">Pesquisar Cliente</label></h4>
+
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  <ul class="search-result">
+    <li *ngIf="inputCliente" class="h-auto">
+      <a routerLink="/cliente/detail/{{inputCliente.id}}">
+        {{inputCliente.nome}}
+      </a>
+    </li>
+  </ul>
+</div>

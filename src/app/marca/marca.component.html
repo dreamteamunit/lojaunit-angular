@@ -31,7 +31,7 @@
   <tbody>
     <tr *ngFor="let marc of marcas">
       <th scope="row">{{marc.id}}</th>
-      <td scope="row">{{marc.nome}}</td>
+      <td scope="row"><a routerLink="/marca/detail/{{marc.id}}">{{marc.nome}}</a></td>
       <td>{{marc.descricao}}</td>
       <td><i class="icon-remove"> <button class="delete btn btn-danger" title="Apagar Marca"
         (click)="delete(marc)">x</button> </i></td>
@@ -39,4 +39,4 @@
   </tbody>
 </table>
 <hr />
-<!-- <app-marca-search></app-marca-search> -->
+<app-marca-search></app-marca-search>

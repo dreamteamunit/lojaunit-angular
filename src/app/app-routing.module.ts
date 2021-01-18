@@ -9,6 +9,7 @@ import { CategoriaComponent } from './categoria/categoria.component'
 import { MarcaDetailComponent } from './marca-detail/marca-detail.component'
 import { QuemsomosComponent } from './quemsomos/quemsomos.component'
 import { FaqComponent } from './faq/faq.component'
+import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 
 
 const routes: Routes = [
@@ -38,15 +39,19 @@ const routes: Routes = [
   },
   {
     path: 'marca/detail/:id',
-    component: MarcaDetailComponent
+    component: MarcaDetailComponent,
+  },
+  {
+    path: 'cliente/detail/:id',
+    component: ClienteDetailComponent,
   },
   {
     path: '',
-    component: QuemsomosComponent
+    component: QuemsomosComponent,
   },
   {
     path: 'faq',
-    component: FaqComponent
+    component: FaqComponent,
   },
 ];
 

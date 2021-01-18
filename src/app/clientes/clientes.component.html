@@ -65,10 +65,12 @@
   <tbody>
     <tr *ngFor="let cliente of clientes">
       <th scope="row">{{cliente.id}}</th>
-      <td scope="row">{{cliente.nome}}</td>
+      <td scope="row">
+        <a routerLink="/cliente/detail/{{cliente.id}}">{{cliente.nome}}</a>
+      </td>
       <td>{{cliente.cpf}}</td>
       <td>{{cliente.email}}</td>
-      <td>{{cliente.dataNascimento}}</td>
+      <td>{{cliente.dataNascimento | date:'dd/MM/y'}}</td>
       <td>{{cliente.sexo}}</td>
       <td>{{cliente.nomeSocial}}</td>
       <td>{{cliente.apelido}}</td>
@@ -78,4 +80,5 @@
     </tr>
   </tbody>
 </table>
-
+<hr />
+<app-cliente-search></app-cliente-search>

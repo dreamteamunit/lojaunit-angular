@@ -22,7 +22,7 @@ export class ClienteService {
       responseType: 'text' as 'json',
     }),
   };
-  
+
   httpOptionsPlain = {
     headers: new HttpHeaders({
       Accept: 'text/plain',
@@ -36,7 +36,8 @@ export class ClienteService {
     private messageService: MessageService
   ) {}
 
-  getClientes(): Observable<Cliente[]> {console.log('a');
+  getClientes(): Observable<Cliente[]> {
+    console.log('a');
     return this.http.get<Cliente[]>(this.api + '/all').pipe(
       tap((_) => this.log('clientes recuperados')),
       catchError(this.handleError<Cliente[]>('getClientes', []))
@@ -63,11 +64,41 @@ export class ClienteService {
         catchError(this.handleError<Cliente>('addCliente'))
       );
   }
+  getClienteById(id: number): Observable<Cliente> {
+    const url = `${this.api}/find/${id}`;
+    return this.http.get<Cliente>(url).pipe(
+      tap((_) => this.log(`cliente recuperado id=${id}`)),
+      catchError(this.handleError<Cliente>(`getCliente id=${id}`))
+    );
+  }
+  updateCliente(cliente: Cliente): Observable<any> {
+    return this.http
+      .put(`${this.api}/update/${cliente.id}`, cliente, this.httpOptions)
+      .pipe(
+        tap((_) => this.log(`cliente atualizada id=${cliente.id}`)),
+        catchError(this.handleError<any>('updateCliente'))
+      );
+  }
+  searchCliente(term: string): Observable<Cliente> {
+    if (!term.trim()) {
+      // if not search term, return empty marc array.
+      return of(null);
+    }
+    return this.http.get<Cliente>(`${this.api}/find/${term}`).pipe(
+      tap((x) => {
+        //console.log(x);
+        x != null
+          ? this.log(`cliente retornada "${x.nome}"`)
+          : this.log(`cliente nao encontrada "${term}"`);
+      }),
+      catchError(this.handleError<Cliente>('searchCliente', null))
+    );
+  }
 
   //getCliente(id: number): Observable<Cliente> {
-    // TODO: send the message _after_ fetching the hero
-    //this.messageService.add(`HeroService: fetched hero id=${id}`);
-    //return of(CLIENTES.find((cliente) => cliente.id === id));
+  // TODO: send the message _after_ fetching the hero
+  //this.messageService.add(`HeroService: fetched hero id=${id}`);
+  //return of(CLIENTES.find((cliente) => cliente.id === id));
   //}
   /**
    * Handle Http operation that failed.

@@ -1,0 +1,47 @@
+<div *ngIf="cliente">
+
+  <h2>{{cliente.nome | uppercase}} Details</h2>
+  <div><span>id: </span>{{cliente.id}}</div>
+  <div>
+    <label>Nome:
+      <input [(ngModel)]="cliente.nome" placeholder="Nome"/>
+    </label>
+  </div>
+  <div>
+      <label>CPF:
+        <input [(ngModel)]="cliente.cpf" placeholder="CPF"/>
+    </label>
+  </div>
+  <div>
+      <label>E-mail:
+        <input [(ngModel)]="cliente.email" placeholder="E-mail"/>
+    </label>
+  </div>
+  <div>
+      <label>Telefone:
+        <input [(ngModel)]="cliente.telefone" placeholder="Telefone"/>
+    </label>
+  </div>
+  <div>
+      <label>Apelido:
+        <input [(ngModel)]="cliente.apelido" placeholder="Apelido"/>
+    </label>
+  </div>
+  <div>
+      <label>Nome Social:
+        <input [(ngModel)]="cliente.nomeSocial" placeholder="Nome Social"/>
+    </label>
+  </div>
+  <div>
+      <label>Sexo:
+        <input [(ngModel)]="cliente.sexo" placeholder="Sexo"/>
+    </label>
+  </div>
+  <div>
+      <label>Data de Nascimento:
+        <input class="form-control" id="dataNascimento" type="date" [ngModel]="cliente.dataNascimento | date:'y-MM-dd'" placeholder="Data de Nascimento" #clienteDataNascimento />
+    </label>
+  </div>
+  <button (click)="goBack()">Voltar</button>
+  <button (click)="save()">Atualizar</button>
+</div>
