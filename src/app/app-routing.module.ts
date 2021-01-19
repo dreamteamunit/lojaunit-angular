@@ -11,6 +11,7 @@ import { QuemsomosComponent } from './quemsomos/quemsomos.component'
 import { FaqComponent } from './faq/faq.component'
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { FornecedorDetailComponent } from './fornecedor-detail/fornecedor-detail.component';
+import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'categoria',
     component: CategoriaComponent,
+  },
+  {
+    path: 'categoria/detail/:id',
+    component: CategoriaDetailComponent,
   },
   {
     path: 'formaPagamento',

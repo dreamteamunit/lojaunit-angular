@@ -26,17 +26,23 @@
       <th scope="col">#Id</th>
       <th scope="col">Nome</th>
       <th scope="col">Ativo</th>
-      <th scope="col">Remove</th>
+      <th scope="col">Apagar</th>
+      <th scope="col">Atualizar</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let cat of categorias">
       <th scope="row">{{cat.id}}</th>
-      <td scope="row">{{cat.nome}}</td>
+      <td scope="row"><a routerLink="/categoria/detail/{{cat.id}}">{{cat.nome}}</a></td>
       <td>{{cat.ativo}}</td>
-      <td><i class="icon-remove"><button class="delete btn btn-danger" title="Apagar categoria"
-        (click)="delete(cat)">x</button></i></td>
+      <td><button class="delete btn btn-danger fa fa-trash" title="Apagar categoria"
+        (click)="delete(cat)"></button></td>
+      <td><button class="delete btn btn-warning fa fa-edit" title="Atualizar categoria"
+        routerLink="/categoria/detail/{{cat.id}}"></button></td>
     </tr>
   </tbody>
 </table>
+<hr />
+<app-categoria-search></app-categoria-search>
+
 

@@ -1,0 +1,14 @@
+<div id="search-component">
+    <h4><label for="search-box">Pesquisar Categoria</label></h4>
+  
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Informe o ID" />
+    <ul class="search-result">
+      <li *ngIf="inputCategoria" class="h-auto">
+        <a routerLink="/categoria/detail/{{inputCategoria.id}}">
+          {{inputCategoria.nome}}
+        </a>
+      </li>
+    </ul>
+</div>
+<hr />
+

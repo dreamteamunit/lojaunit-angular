@@ -65,6 +65,37 @@ export class CategoriaService {
       );
   }
 
+  getCategoriaById(id: number): Observable<Categoria> {
+    const url = `${this.api}/find/${id}`;
+    return this.http.get<Categoria>(url).pipe(
+      tap((_) => this.log(`categoria recuperada id=${id}`)),
+      catchError(this.handleError<Categoria>(`getCategoria id=${id}`))
+    );
+  }
+  updateCategoria(categoria: Categoria): Observable<any> {
+    return this.http
+      .put(`${this.api}/update/${categoria.id}`, categoria, this.httpOptions)
+      .pipe(
+        tap((_) => this.log(`categoria atualizada id=${categoria.id}`)),
+        catchError(this.handleError<any>('updateCategoria'))
+      );
+  }
+  searchCategoria(term: string): Observable<Categoria> {
+    if (!term.trim()) {
+      // if not search term, return empty marc array.
+      return of(null);
+    }
+    return this.http.get<Categoria>(`${this.api}/find/${term}`).pipe(
+      tap((x) => {
+        //console.log(x);
+        x != null
+          ? this.log(`categoria retornada "${x.nome}"`)
+          : this.log(`categoria nao encontrada "${term}"`);
+      }),
+      catchError(this.handleError<Categoria>('searchCategoria', null))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
