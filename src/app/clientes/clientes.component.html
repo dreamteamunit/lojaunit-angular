@@ -60,6 +60,7 @@
       <th scope="col">Apelido</th>
       <th scope="col">Telefone</th>
       <th scope="col">Apagar</th>
+      <th scope="col">Atualizar</th>
     </tr>
   </thead>
   <tbody>
@@ -76,6 +77,8 @@
       <td>{{cliente.apelido}}</td>
       <td>{{cliente.telefone}}</td>
       <td><i class="icon-remove"><button class="delete btn btn-danger" title="Apagar Cliente"
+        (click)="delete(cliente)">x</button></i></td>
+      <td><i class="icon-remove"><button class="delete btn btn-warning" title="Atualizar Cliente"
         (click)="delete(cliente)">x</button></i></td>
     </tr>
   </tbody>

@@ -37,3 +37,11 @@ ul.search-result {
   margin-top: 0;
   padding-left: 0;
 }
+
+h4 {
+  padding: 10px;
+}
+
+input {
+  margin-left: 10px;
+}
