@@ -71,15 +71,19 @@
       </td>
       <td>{{cliente.cpf}}</td>
       <td>{{cliente.email}}</td>
-      <td>{{cliente.dataNascimento | date:'dd/MM/y'}}</td>
+      <td>{{cliente.dataNascimento}}</td>
       <td>{{cliente.sexo}}</td>
       <td>{{cliente.nomeSocial}}</td>
       <td>{{cliente.apelido}}</td>
       <td>{{cliente.telefone}}</td>
-      <td><i class="icon-remove"><button class="delete btn btn-danger" title="Apagar Cliente"
-        (click)="delete(cliente)">x</button></i></td>
-      <td><i class="icon-remove"><button class="delete btn btn-warning" title="Atualizar Cliente"
-        (click)="delete(cliente)">x</button></i></td>
+      <td><button class="delete btn btn-danger fa fa-trash" title="Apagar Cliente"
+        (click)="delete(cliente)"></button>
+      </td>
+      <td>
+        <button class="btn btn-warning fa fa-edit" title="Atualizar Cliente"
+            routerLink="/cliente/detail/{{cliente.id}}">
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

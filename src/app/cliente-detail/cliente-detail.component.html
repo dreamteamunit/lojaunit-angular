@@ -6,43 +6,43 @@
     <div class="form-row">
       <div class="col">
         <label for="id">ID</label>
-        <input type="text" class="form-control" placeholder="Id do Cliente" #clienteId required id="id" [(ngModel)]="cliente.id" />
+        <input type="text" class="form-control" placeholder="Id do Cliente" #clienteId required id="id" [(ngModel)]="cliente.id" [ngModelOptions]="{standalone: true}" />
       </div>
       <div class="col">
         <label for="nome">Nome Completo</label>
-        <input type="text" class="form-control" placeholder="Nome do Cliente" #clienteNome required id="nome" [(ngModel)]="cliente.nome" />
+        <input type="text" class="form-control" placeholder="Nome do Cliente" #clienteNome required id="nome" [(ngModel)]="cliente.nome" [ngModelOptions]="{standalone: true}" />
       </div>
       <div class="col">
         <label for="email">E-mail</label>
-        <input type="text" class="form-control" placeholder="E-mail do Cliente" #clienteEmail required id="email" [(ngModel)]="cliente.email" />
+        <input type="text" class="form-control" placeholder="E-mail do Cliente" #clienteEmail required id="email" [(ngModel)]="cliente.email" [ngModelOptions]="{standalone: true}" />
       </div>
     </div>
     <div class="form-row">
       <div class="col">
         <label for="cpf">CPF</label>
-        <input type="text" class="form-control" placeholder="CPF do Cliente" #clienteCpf required id="cpf" [(ngModel)]="cliente.cpf" />
+        <input type="text" class="form-control" placeholder="CPF do Cliente" #clienteCpf required id="cpf" [(ngModel)]="cliente.cpf" [ngModelOptions]="{standalone: true}" />
       </div>
       <div class="col">
         <label for="telefone">Telefone</label>
-        <input type="text" class="form-control" placeholder="Telefone do Cliente" #clienteTelefone id="telefone" [(ngModel)]="cliente.telefone" />
+        <input type="text" class="form-control" placeholder="Telefone do Cliente" #clienteTelefone id="telefone" [(ngModel)]="cliente.telefone" [ngModelOptions]="{standalone: true}" />
       </div>
       <div class="col">
         <label for="apelido">Apelido</label>
-        <input type="text" class="form-control" placeholder="Apelido do Cliente" #clienteApelido id="apelido" [(ngModel)]="cliente.apelido" />
+        <input type="text" class="form-control" placeholder="Apelido do Cliente" #clienteApelido id="apelido" [(ngModel)]="cliente.apelido" [ngModelOptions]="{standalone: true}" />
       </div>
       <div class="col">
         <label for="nomeSocial">Nome Social</label>
-        <input type="text" class="form-control" placeholder="Nome Social do Cliente" #clienteNomeSocial id="nomeSocial" [(ngModel)]="cliente.nomeSocial" />
+        <input type="text" class="form-control" placeholder="Nome Social do Cliente" #clienteNomeSocial id="nomeSocial" [(ngModel)]="cliente.nomeSocial" [ngModelOptions]="{standalone: true}" />
       </div>
     </div>
     <div class="form-row">
       <div class="col">
         <label for="sexo">Sexo</label>
-        <input type="text" class="form-control" placeholder="Sexo do Cliente" #clienteSexo id="sexo" [(ngModel)]="cliente.sexo" />
+        <input type="text" class="form-control" placeholder="Sexo do Cliente" #clienteSexo id="sexo" [(ngModel)]="cliente.sexo" [ngModelOptions]="{standalone: true}" />
       </div>
       <div class="col">
         <label for="dataNascimento">Data de Nascimento</label>
-        <input type="date" class="form-control" placeholder="Data de Nascimento do Cliente" #clienteDataNascimento id="dataNascimento" [(ngModel)]="cliente.dataNascimento" />
+        <input type="date" class="form-control" placeholder="Data de Nascimento do Cliente" #clienteDataNascimento id="dataNascimento" [ngModel]="cliente.dataNascimento | date:'y-MM-dd'" [ngModelOptions]="{standalone: true}" />
       </div>
     </div> <br />
     <button (click)="goBack()" class="btn btn-warning">Voltar</button>
