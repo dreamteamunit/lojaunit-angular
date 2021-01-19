@@ -42,13 +42,6 @@ export class CategoriaService {
       catchError(this.handleError<Categoria[]>('getCategoria', []))
     );
   }
-  getCategoriaById(id: number): Observable<Categoria> {
-    const url = `${this.api}/find/${id}`;
-    return this.http.get<Categoria>(url).pipe(
-      tap((_) => this.log(`categoria recuperada id=${id}`)),
-      catchError(this.handleError<Categoria>(`getCategoria id=${id}`))
-    );
-  }
 
   deleteCategoria(categoria: Categoria | number): Observable<Categoria> {
     const id = typeof categoria === 'number' ? categoria : categoria.id;
@@ -79,6 +72,7 @@ export class CategoriaService {
       catchError(this.handleError<Categoria>(`getCategoria id=${id}`))
     );
   }
+
   updateCategoria(categoria: Categoria): Observable<any> {
     return this.http
       .put(`${this.api}/update/${categoria.id}`, categoria, this.httpOptions)

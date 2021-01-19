@@ -65,6 +65,37 @@ import { catchError, map, tap } from 'rxjs/operators';
       );
   }
 
+  getFormaPagamentoById(id: number): Observable<FormaPagamento> {
+    const url = `${this.api}/find/${id}`;
+    return this.http.get<FormaPagamento>(url).pipe(
+      tap((_) => this.log(`formaPagamento recuperada id=${id}`)),
+      catchError(this.handleError<FormaPagamento>(`getFormaPagamento id=${id}`))
+    );
+  }
+  updateFormaPagamento(formaPagamento: FormaPagamento): Observable<any> {
+    return this.http
+      .put(`${this.api}/update/${formaPagamento.id}`, formaPagamento, this.httpOptions)
+      .pipe(
+        tap((_) => this.log(`formaPagamento atualizada id=${formaPagamento.id}`)),
+        catchError(this.handleError<any>('updateFormaPagamento'))
+      );
+  }
+  searchFormaPagamento(term: string): Observable<FormaPagamento> {
+    if (!term.trim()) {
+      // if not search term, return empty marc array.
+      return of(null);
+    }
+    return this.http.get<FormaPagamento>(`${this.api}/find/${term}`).pipe(
+      tap((x) => {
+        //console.log(x);
+        x != null
+          ? this.log(`formaPagamento retornada "${x.forma}"`)
+          : this.log(`formaPagamento nao encontrada "${term}"`);
+      }),
+      catchError(this.handleError<FormaPagamento>('searchFormaPagamento', null))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

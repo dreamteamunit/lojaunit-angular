@@ -23,9 +23,11 @@ import { FornecedorDetailComponent } from './fornecedor-detail/fornecedor-detail
 import { FornecedorSearchComponent } from './fornecedor-search/fornecedor-search.component';
 import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.component';
 import { CategoriaSearchComponent } from './categoria-search/categoria-search.component';
+import { FormaPagamentoDetailComponent } from './forma-pagamento-detail/forma-pagamento-detail.component';
+import { FormaPagamentoSearchComponent } from './forma-pagamento-search/forma-pagamento-search.component';
 
 @NgModule({
-  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent, FormaPagamentoComponent,ProdutoComponent, MarcaDetailComponent, MarcaSearchComponent, QuemsomosComponent, AdminComponent, FaqComponent, ClienteDetailComponent, ClienteSearchComponent, FornecedorDetailComponent, FornecedorSearchComponent, CategoriaDetailComponent, CategoriaSearchComponent],
+  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent, FormaPagamentoComponent,ProdutoComponent, MarcaDetailComponent, MarcaSearchComponent, QuemsomosComponent, AdminComponent, FaqComponent, ClienteDetailComponent, ClienteSearchComponent, FornecedorDetailComponent, FornecedorSearchComponent, CategoriaDetailComponent, CategoriaSearchComponent, FormaPagamentoDetailComponent, FormaPagamentoSearchComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

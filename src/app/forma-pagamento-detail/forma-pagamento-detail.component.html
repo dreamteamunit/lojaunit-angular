@@ -1,0 +1,29 @@
+<div *ngIf="formaPagamento">
+    <h4>Atualizar Forma de Pagamento - {{formaPagamento.forma | uppercase}}</h4>
+    <hr />
+
+    <form class="cadastro">
+        <div class="form-row">
+          <div class="col">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" placeholder="Id da Forma de Pagamento" #formaPagamentoId required id="id" [(ngModel)]="formaPagamento.id" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="nome">Forma de Pagamento</label>
+            <input type="text" class="form-control" placeholder="Nome da Forma de Pagamento" #formaPagamentoForma required id="nome" [(ngModel)]="formaPagamento.forma" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="descricao">Descrição</label>
+            <input type="text" class="form-control" placeholder="Descricao da Forma de Pagamento" #formaPagamentoDescricao id="descricao" [(ngModel)]="formaPagamento.descricao" [ngModelOptions]="{standalone: true}" />
+          </div>
+        </div>
+        <br />
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="atv" required #formaPagamentoAtivo name="ativo" [(ngModel)]="formaPagamento.ativo" [ngModelOptions]="{standalone: true}" />
+          <label class="form-check-label" for="atv">Ativo?</label>
+        </div> <br />
+        <button (click)="goBack()" class="btn btn-warning">Voltar</button>
+        <button (click)="save()" class="reset btn btn-success">Atualizar</button>
+      </form>
+</div>
+<hr />

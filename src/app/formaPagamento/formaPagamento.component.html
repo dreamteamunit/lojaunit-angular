@@ -32,17 +32,23 @@
       <th scope="col">Descrição</th>
       <th scope="col">Ativo</th>
       <th scope="col">Apagar</th>
+      <th scope="col">Atualizar</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let forma of formasPagamento">
       <th scope="row">{{forma.id}}</th>
-      <td scope="row">{{forma.forma}}</td>
+      <td scope="row"><a routerLink="/formaPagamento/detail/{{forma.id}}">{{forma.forma}}</a></td>
       <td>{{forma.descricao}}</td>
       <td>{{forma.ativo}}</td>
-      <td><i class="icon-remove"><button class="delete btn btn-danger" title="Apagar formaPagamento"
-        (click)="delete(forma)">x</button></i></td>
+      <td><button class="delete btn btn-danger fa fa-trash" title="Apagar formaPagamento"
+        (click)="delete(forma)"></button></td>
+      <td><button class="delete btn btn-warning fa fa-edit" title="Atualizar formaPagamento"
+        routerLink="/formaPagamento/detail/{{forma.id}}"></button></td>
     </tr>
   </tbody>
 </table>
+<hr />
+<app-forma-pagamento-search></app-forma-pagamento-search>
+
 

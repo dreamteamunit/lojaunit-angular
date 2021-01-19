@@ -1,0 +1,13 @@
+<div id="search-component">
+    <h4><label for="search-box">Pesquisar Forma de Pagamento</label></h4>
+  
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Informe o ID" />
+    <ul class="search-result">
+      <li *ngIf="inputFormaPagamento" class="h-auto">
+        <a routerLink="/formaPagamento/detail/{{inputFormaPagamento.id}}">
+          {{inputFormaPagamento.forma}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <hr />

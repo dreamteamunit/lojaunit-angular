@@ -12,6 +12,7 @@ import { FaqComponent } from './faq/faq.component'
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { FornecedorDetailComponent } from './fornecedor-detail/fornecedor-detail.component';
 import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.component';
+import { FormaPagamentoDetailComponent } from './forma-pagamento-detail/forma-pagamento-detail.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'formaPagamento',
     component: FormaPagamentoComponent,
+  },
+  {
+    path: 'formaPagamento/detail/:id',
+    component: FormaPagamentoDetailComponent,
   },
   {
     path: 'produto',
