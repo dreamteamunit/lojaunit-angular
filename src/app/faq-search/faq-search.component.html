@@ -1,0 +1,13 @@
+<div id="search-component">
+    <h4><label for="search-box">Pesquisar Faq</label></h4>
+  
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Informe o ID" />
+    <ul class="search-result">
+      <li *ngIf="inputFaq" class="h-auto">
+        <a routerLink="/faq/detail/{{inputFaq.id}}">
+          {{inputFaq.id}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <hr />

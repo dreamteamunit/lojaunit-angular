@@ -65,6 +65,38 @@ import { catchError, map, tap } from 'rxjs/operators';
       );
   }
 
+  getFaqById(id: number): Observable<Faq> {
+    const url = `${this.api}/find/${id}`;
+    return this.http.get<Faq>(url).pipe(
+      tap((_) => this.log(`daq recuperada id=${id}`)),
+      catchError(this.handleError<Faq>(`getFaq id=${id}`))
+    );
+  }
+
+  updateFaq(faq: Faq): Observable<any> {
+    return this.http
+      .put(`${this.api}/update/${faq.id}`, faq, this.httpOptions)
+      .pipe(
+        tap((_) => this.log(`faq atualizada id=${faq.id}`)),
+        catchError(this.handleError<any>('updateFaq'))
+      );
+  }
+  searchFaq(term: string): Observable<Faq> {
+    if (!term.trim()) {
+      // if not search term, return empty marc array.
+      return of(null);
+    }
+    return this.http.get<Faq>(`${this.api}/find/${term}`).pipe(
+      tap((x) => {
+        //console.log(x);
+        x != null
+          ? this.log(`faq retornada "${x.id}"`)
+          : this.log(`faq nao encontrada "${term}"`);
+      }),
+      catchError(this.handleError<Faq>('searchFaq', null))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

@@ -1,0 +1,29 @@
+<div *ngIf="faq">
+    <h4>Atualizar Faq - {{faq.id | uppercase}}</h4>
+    <hr />
+    <form class="cadastro">
+        <div class="form-row">
+          <div class="col">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" placeholder="Id do Faq" #faqId required id="id" [(ngModel)]="faq.id" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="datahora">Data / Hora</label>
+            <input type="date" class="form-control" placeholder="Data/Hora do Momento da Postagem" #faqDatahora id="datahora" [(ngModel)]="faq.datahora" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="produto">Produto</label>
+            <input type="text" class="form-control" placeholder="ID do Produto" #faqProduto required id="produto" [(ngModel)]="faq.produto" [ngModelOptions]="{standalone: true}" />
+          </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+              <label for="faq">Faq Produto</label>
+              <input type="text" class="form-control" placeholder="Texto Faq do Produto" #faqTexto required id="faq" [(ngModel)]="faq.texto" [ngModelOptions]="{standalone: true}" />
+            </div>
+        </div> <br />
+        <button (click)="goBack()" class="btn btn-warning">Voltar</button>
+        <button (click)="save()" class="reset btn btn-success">Atualizar</button>
+    </form>
+</div>
+<hr />

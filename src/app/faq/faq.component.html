@@ -33,17 +33,24 @@
       <th scope="col">Texto</th>
       <th scope="col">Produto</th>
       <th scope="col">Apagar</th>
+      <th scope="col">Atualizar</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let faq of faqs">
-      <th scope="row">{{faq.id}}</th>
+      <th scope="row"><a routerLink="/faq/detail/{{faq.id}}">{{faq.id}}</a></th>
       <td scope="row">{{faq.datahora}}</td>
       <td>{{faq.texto}}</td>
       <td>{{faq.produto}}</td>
-      <td><i class="icon-remove"> <button class="delete btn btn-danger" title="Apagar Faq"
-        (click)="delete(faq)">x</button> </i></td>
+      <td><button class="delete btn btn-danger fa fa-trash" title="Apagar Faq"
+        (click)="delete(faq)"></button></td>
+      <td><button class="delete btn btn-warning fa fa-edit" title="Atualizar Faq"
+        routerLink="/faq/detail/{{faq.id}}"></button></td>
     </tr>
   </tbody>
 </table>
+<hr />
+<app-faq-search></app-faq-search>
+
+
 
