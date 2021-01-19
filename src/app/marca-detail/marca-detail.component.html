@@ -1,17 +1,22 @@
 <div *ngIf="marca">
-
-  <h2>{{marca.nome | uppercase}} Details</h2>
-  <div><span>id: </span>{{marca.id}}</div>
-  <div>
-    <label>Nome:
-      <input [(ngModel)]="marca.nome" placeholder="Nome"/>
-    </label>
-  </div>
-  <div>
-      <label>Descrição:
-        <input [(ngModel)]="marca.descricao" placeholder="Descrição"/>
-    </label>
-  </div>
-  <button (click)="goBack()">Voltar</button>
-  <button (click)="save()">Atualizar</button>
+  <h4>Atualizar Marca - {{marca.nome | uppercase}}</h4>
+  <hr />
+  <form class="cadastro">
+    <div class="form-row">
+      <div class="col">
+        <label for="id">Id</label>
+        <input type="text" class="form-control" placeholder="ID da Marca" #marcaId required id="id" [(ngModel)]="marca.id" [ngModelOptions]="{standalone: true}" />
+      </div>
+      <div class="col">
+        <label for="nome">Nome Marca</label>
+        <input type="text" class="form-control" placeholder="Nome da Marca" #marcaNome required id="nome" [(ngModel)]="marca.nome" [ngModelOptions]="{standalone: true}" />
+      </div>
+      <div class="col">
+        <label for="descricao">Descrição</label>
+        <input type="text" class="form-control" placeholder="Descrição da Marca" #marcaDescricao id="descricao" [(ngModel)]="marca.descricao" [ngModelOptions]="{standalone: true}" />
+      </div>
+    </div> <br />
+    <button (click)="goBack()" class="btn btn-warning">Voltar</button>
+    <button (click)="save()" class="reset btn btn-success">Atualizar</button>
+  </form>
 </div>
