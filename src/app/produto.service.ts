@@ -65,6 +65,37 @@ import { catchError, map, tap } from 'rxjs/operators';
       );
   }
 
+  getProdutoById(id: number): Observable<Produto> {
+    const url = `${this.api}/find/${id}`;
+    return this.http.get<Produto>(url).pipe(
+      tap((_) => this.log(`produto recuperado id=${id}`)),
+      catchError(this.handleError<Produto>(`getProduto id=${id}`))
+    );
+  }
+  updateProduto(produto: Produto): Observable<any> {
+    return this.http
+      .put(`${this.api}/update/${produto.id}`, produto, this.httpOptions)
+      .pipe(
+        tap((_) => this.log(`produto atualizado id=${produto.id}`)),
+        catchError(this.handleError<any>('updateProduto'))
+      );
+  }
+  searchProduto(term: string): Observable<Produto> {
+    if (!term.trim()) {
+      // if not search term, return empty marc array.
+      return of(null);
+    }
+    return this.http.get<Produto>(`${this.api}/find/${term}`).pipe(
+      tap((x) => {
+        //console.log(x);
+        x != null
+          ? this.log(`produto retornado "${x.nome}"`)
+          : this.log(`produto nao encontrado "${term}"`);
+      }),
+      catchError(this.handleError<Produto>('searchProduto', null))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

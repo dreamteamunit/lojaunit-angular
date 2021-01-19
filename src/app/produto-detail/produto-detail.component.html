@@ -1,0 +1,49 @@
+<div *ngIf="produto">
+    <h4>Atualizar Produto - {{produto.nome | uppercase}}</h4>
+    <hr />
+
+    <form class="cadastro">
+        <div class="form-row">
+          <div class="col">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" placeholder="Id do Produto" #produtoId id="id" [(ngModel)]="produto.id" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="nome">Nome Produto</label>
+            <input type="text" class="form-control" placeholder="Nome do Produto" #produtoNome id="nome" [(ngModel)]="produto.nome" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="descricao">Descrição</label>
+            <input type="text" class="form-control" placeholder="Descrição do Produto" #produtoDescricao id="descricao" [(ngModel)]="produto.descricao" [ngModelOptions]="{standalone: true}" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <label for="preco">Preço Unitário</label>
+            <input type="number" class="form-control" placeholder="Preço Unitário" #produtoPreco id="preco" [(ngModel)]="produto.preco" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="unidade">Unidade</label>
+            <input type="text" class="form-control" placeholder="Unidade de Medida" #produtoUnidade id="unidade" [(ngModel)]="produto.unidade" [ngModelOptions]="{standalone: true}" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <label for="categoria">Categoria</label>
+            <input type="text" class="form-control" placeholder="ID de Categoria " #produtoCategoria id="categoria" [(ngModel)]="produto.categoria" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="fornecedor">Fornecedor</label>
+            <input type="text" class="form-control" placeholder="ID de Fornecedor" #produtoFornecedor id="fornecedor" [(ngModel)]="produto.fornecedor" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="marca">Marca</label>
+            <input type="text" class="form-control" placeholder="ID de Marca" #produtoMarca id="marca" [(ngModel)]="produto.marca" [ngModelOptions]="{standalone: true}" />
+          </div>
+        </div> <br />
+        <button (click)="goBack()" class="btn btn-warning">Voltar</button>
+        <button (click)="save()" class="reset btn btn-success">Atualizar</button>
+      </form>
+
+
+</div>

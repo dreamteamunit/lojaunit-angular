@@ -52,6 +52,7 @@
       <th scope="col">Preço Unitário</th>
       <th scope="col">Unidade</th>
       <th scope="col">Apagar</th>
+      <th scope="col">Atualizar</th>
     </tr>
   </thead>
   <tbody>
@@ -61,8 +62,13 @@
       <td>{{produto.descricao}}</td>
       <th>{{produto.precoUnitario}}</th>
       <td>{{produto.unidade}}</td>
-      <td><i class="icon-remove"><button class="delete btn btn-danger" title="Apagar produto"
-        (click)="delete(produto)">x</button></i></td>
+      <td><button class="delete btn btn-danger fa fa-trash" title="Apagar produto"
+        (click)="delete(produto)"></button></td>
+        <td><button class="delete btn btn-warning fa fa-edit" title="Atualizar produto"
+          routerLink="/produto/detail/{{produto.id}}"></button></td>
     </tr>
   </tbody>
 </table>
+<hr />
+<app-produto-search></app-produto-search>
+

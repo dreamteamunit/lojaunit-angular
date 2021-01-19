@@ -13,6 +13,7 @@ import { ClienteDetailComponent } from './cliente-detail/cliente-detail.componen
 import { FornecedorDetailComponent } from './fornecedor-detail/fornecedor-detail.component';
 import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.component';
 import { FormaPagamentoDetailComponent } from './forma-pagamento-detail/forma-pagamento-detail.component';
+import { ProdutoDetailComponent } from './produto-detail/produto-detail.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'produto',
     component: ProdutoComponent,
+  },
+  {
+    path: 'produto/detail/:id',
+    component: ProdutoDetailComponent,
   },
   {
     path: 'marca/detail/:id',
