@@ -43,20 +43,24 @@
       <th scope="col">Telefone</th>
       <th scope="col">CNPJ</th>
       <th scope="col">E-mail</th>
-      <th scope="col">Remove</th>
+      <th scope="col">Apagar</th>
+      <th scope="col">Atualizar</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let forn of fornecedor">
       <th scope="row">{{forn.id}}</th>
-      <td scope="row">{{forn.nome}}</td>
+      <td scope="row"><a routerLink="/fornecedor/detail/{{forn.id}}">{{forn.nome}}</a></td>
       <td>{{forn.endereco}}</td>
       <td>{{forn.telefone}}</td>
       <td>{{forn.cnpj}}</td>
       <td>{{forn.email}}</td>
-      <td><i class="icon-remove"><button class="delete btn btn-danger" title="Apagar fornecedor"
-        (click)="delete(forn)">x</button></i></td>
+      <td><button class="delete btn btn-danger fa fa-trash" title="Apagar fornecedor"
+        (click)="delete(forn)"></button></td>
+      <td><button class="delete btn btn-warning fa fa-edit" title="Atualizar fornecedor"
+        routerLink="/fornecedor/detail/{{forn.id}}"></button></td>
     </tr>
   </tbody>
 </table>
-
+<hr />
+<app-fornecedor-search></app-fornecedor-search>

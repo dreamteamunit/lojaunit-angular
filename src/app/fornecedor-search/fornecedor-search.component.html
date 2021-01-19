@@ -1,0 +1,13 @@
+<div id="search-component">
+    <h4><label for="search-box">Pesquisar Fornecedor</label></h4>
+  
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Informe o ID" />
+    <ul class="search-result">
+      <li *ngIf="inputFornecedor" class="h-auto">
+        <a routerLink="/fornecedor/detail/{{inputFornecedor.id}}">
+          {{inputFornecedor.nome}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <hr />

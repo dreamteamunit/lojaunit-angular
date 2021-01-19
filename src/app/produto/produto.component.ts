@@ -45,7 +45,7 @@ export class ProdutoComponent implements OnInit {
         if (!nome && !categoria && !fornecedor && !marca) {
             return;
         }
-        this.ProdutoService.addProduto({ nome, descricao } as Produto).subscribe((produto) => {
+        this.ProdutoService.addProduto({ nome, descricao, precoUnitario, unidade, categoria, fornecedor, marca } as Produto).subscribe((produto) => {
             this.produtos.push(produto);
         });
     }

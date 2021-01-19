@@ -1,0 +1,36 @@
+<div *ngIf="fornecedor">
+    <h4>Atualizar Fornecedor - {{fornecedor.nome | uppercase}}</h4>
+    <hr />
+    <form class="cadastro">
+        <div class="form-row">
+          <div class="col">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" placeholder="Id do Fornecedor" #fornecedorId required id="id" [(ngModel)]="fornecedor.id" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="nome">Nome Empresa</label>
+            <input type="text" class="form-control" placeholder="Nome do Fornecedor" #fornecedorNome required id="nome" [(ngModel)]="fornecedor.nome" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="cnpj">CNPJ</label>
+            <input type="text" class="form-control" placeholder="CNPJ do Fornecedor" #fornecedorCnpj required id="cnpj" [(ngModel)]="fornecedor.cnpj" [ngModelOptions]="{standalone: true}" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <label for="endereco">Endereço</label>
+            <input type="text" class="form-control" placeholder="Endereço do Fornecedor" #fornecedorEndereco id="endereco" [(ngModel)]="fornecedor.endereco" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="telefone">Telefone</label>
+            <input type="text" class="form-control" placeholder="Telefone do Fornecedor" #fornecedorTelefone id="telefone" [(ngModel)]="fornecedor.telefone" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="email">E-mail</label>
+            <input type="text" class="form-control" placeholder="E-mail do Fornecedor" #fornecedorEmail id="email" [(ngModel)]="fornecedor.email" [ngModelOptions]="{standalone: true}" />
+          </div>
+        </div> <br />
+        <button (click)="goBack()" class="btn btn-warning">Voltar</button>
+        <button (click)="save()" class="reset btn btn-success">Atualizar</button>
+    </form>
+</div>

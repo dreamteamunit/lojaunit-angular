@@ -65,6 +65,37 @@ import { catchError, map, tap } from 'rxjs/operators';
         );
     }
 
+    getFornecedorById(id: number): Observable<Fornecedor> {
+      const url = `${this.api}/find/${id}`;
+      return this.http.get<Fornecedor>(url).pipe(
+        tap((_) => this.log(`fornecedor recuperado id=${id}`)),
+        catchError(this.handleError<Fornecedor>(`getFornecedor id=${id}`))
+      );
+    }
+    updateFornecedor(fornecedor: Fornecedor): Observable<any> {
+      return this.http
+        .put(`${this.api}/update/${fornecedor.id}`, fornecedor, this.httpOptions)
+        .pipe(
+          tap((_) => this.log(`fornecedor atualizado id=${fornecedor.id}`)),
+          catchError(this.handleError<any>('updateFornecedor'))
+        );
+    }
+    searchFornecedor(term: string): Observable<Fornecedor> {
+      if (!term.trim()) {
+        // if not search term, return empty marc array.
+        return of(null);
+      }
+      return this.http.get<Fornecedor>(`${this.api}/find/${term}`).pipe(
+        tap((x) => {
+          //console.log(x);
+          x != null
+            ? this.log(`fornecedor retornado "${x.nome}"`)
+            : this.log(`fornecedor nao encontrado "${term}"`);
+        }),
+        catchError(this.handleError<Fornecedor>('searchFornecedor', null))
+      );
+    }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

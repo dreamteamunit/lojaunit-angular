@@ -19,9 +19,11 @@ import { AdminComponent } from './admin/admin.component';
 import { FaqComponent } from './faq/faq.component';
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { ClienteSearchComponent } from './cliente-search/cliente-search.component';
+import { FornecedorDetailComponent } from './fornecedor-detail/fornecedor-detail.component';
+import { FornecedorSearchComponent } from './fornecedor-search/fornecedor-search.component';
 
 @NgModule({
-  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent, FormaPagamentoComponent,ProdutoComponent, MarcaDetailComponent, MarcaSearchComponent, QuemsomosComponent, AdminComponent, FaqComponent, ClienteDetailComponent, ClienteSearchComponent],
+  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent, FormaPagamentoComponent,ProdutoComponent, MarcaDetailComponent, MarcaSearchComponent, QuemsomosComponent, AdminComponent, FaqComponent, ClienteDetailComponent, ClienteSearchComponent, FornecedorDetailComponent, FornecedorSearchComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

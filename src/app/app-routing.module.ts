@@ -10,6 +10,7 @@ import { MarcaDetailComponent } from './marca-detail/marca-detail.component'
 import { QuemsomosComponent } from './quemsomos/quemsomos.component'
 import { FaqComponent } from './faq/faq.component'
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
+import { FornecedorDetailComponent } from './fornecedor-detail/fornecedor-detail.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'fornecedor',
     component: FornecedorComponent,
+  },
+  {
+    path: 'fornecedor/detail/:id',
+    component: FornecedorDetailComponent,
   },
   {
     path: 'marca',
