@@ -20,7 +20,7 @@
         <div class="form-row">
           <div class="col">
             <label for="preco">Preço Unitário</label>
-            <input type="number" class="form-control" placeholder="Preço Unitário" #produtoPreco id="preco" [(ngModel)]="produto.preco" [ngModelOptions]="{standalone: true}" />
+            <input type="number" class="form-control" placeholder="Preço Unitário" #produtoPreco id="preco" [(ngModel)]="produto.precoUnitario" [ngModelOptions]="{standalone: true}" />
           </div>
           <div class="col">
             <label for="unidade">Unidade</label>
@@ -30,15 +30,15 @@
         <div class="form-row">
           <div class="col">
             <label for="categoria">Categoria</label>
-            <input type="text" class="form-control" placeholder="ID de Categoria " #produtoCategoria id="categoria" [(ngModel)]="produto.categoria" [ngModelOptions]="{standalone: true}" />
+            <input type="text" class="form-control" placeholder="ID de Categoria " #produtoCategoria id="categoria" [(ngModel)]="produto.categoria.id" [ngModelOptions]="{standalone: true}" />
           </div>
           <div class="col">
             <label for="fornecedor">Fornecedor</label>
-            <input type="text" class="form-control" placeholder="ID de Fornecedor" #produtoFornecedor id="fornecedor" [(ngModel)]="produto.fornecedor" [ngModelOptions]="{standalone: true}" />
+            <input type="text" class="form-control" placeholder="ID de Fornecedor" #produtoFornecedor id="fornecedor" [(ngModel)]="produto.fornecedor.id" [ngModelOptions]="{standalone: true}" />
           </div>
           <div class="col">
             <label for="marca">Marca</label>
-            <input type="text" class="form-control" placeholder="ID de Marca" #produtoMarca id="marca" [(ngModel)]="produto.marca" [ngModelOptions]="{standalone: true}" />
+            <input type="text" class="form-control" placeholder="ID de Marca" #produtoMarca id="marca" [(ngModel)]="produto.marca.id" [ngModelOptions]="{standalone: true}" />
           </div>
         </div> <br />
         <button (click)="goBack()" class="btn btn-warning">Voltar</button>
