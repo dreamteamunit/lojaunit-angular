@@ -1,7 +1,7 @@
 import { Produto } from "./produto";
 export interface Faq {
     id?: number,
-    datahora?: Date,
+    datahora?: string,
     texto?: string,
     produto?: Produto;
 }

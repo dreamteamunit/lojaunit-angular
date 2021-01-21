@@ -5,10 +5,10 @@
 
 <form class="cadastro">
   <div class="form-row">
-    <div class="col">
+    <!--<div class="col">
       <label for="datahora">Data / Hora</label>
-      <input type="date" class="form-control" placeholder="Data/Hora do Momento da Postagem" #faqDatahora id="datahora" />
-    </div>
+      <input type="date" class="form-control" placeholder="Data/Hora do Momento da Postagem" #faqDatahora id="datahora" readonly />
+    </div>-->
     <div class="col">
       <label for="produto">Produto</label>
       <input type="text" class="form-control" placeholder="ID do Produto" #faqProduto required id="produto" />
@@ -20,7 +20,7 @@
       <input type="text" class="form-control" placeholder="Texto Faq do Produto" #faqTexto required id="faq" />
     </div>
   </div> <br />
-  <button (click)="add(faqDatahora.value,faqTexto.value,faqProduto.value); faqDatahora.value='';faqTexto.value='';faqProduto.value=''" class="btn btn-success"> Adicionar </button>
+  <button (click)="add(faqTexto.value,faqProduto.value); faqTexto.value='';faqProduto.value=''" class="btn btn-success"> Adicionar </button>
   <input type="reset" value="Limpar" class="reset btn btn-warning">
 </form>
 <hr />
@@ -41,7 +41,7 @@
       <th scope="row"><a routerLink="/faq/detail/{{faq.id}}">{{faq.id}}</a></th>
       <td scope="row">{{faq.datahora}}</td>
       <td>{{faq.texto}}</td>
-      <td>{{faq.produto}}</td>
+      <td>{{faq.produto.nome}}</td>
       <td><button class="delete btn btn-danger fa fa-trash" title="Apagar Faq"
         (click)="delete(faq)"></button></td>
       <td><button class="delete btn btn-warning fa fa-edit" title="Atualizar Faq"

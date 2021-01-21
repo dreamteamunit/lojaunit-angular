@@ -33,13 +33,11 @@ export class FaqComponent implements OnInit {
     this.faqs = this.faqs.filter((h) => h !== faq);
     this.FaqService.deleteFaq(faq).subscribe();
   }
-  add(datahora: Date,texto: string,produto: Produto): void {
+  add(texto: string,produto: Produto): void {
     texto = texto.trim();
     
-    datahora = new Date();
-
-    console.log(datahora);
-
+    let datahora = new Date().toISOString();
+    
     if (!texto && !produto) {
       return;
     }
