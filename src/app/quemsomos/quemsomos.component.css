@@ -5,7 +5,7 @@
 }
 
 .sobre {
-  width: 70%;
+  width: 100%;
   float: left;
   padding: 0 20px 20px 0;
 }
@@ -15,7 +15,7 @@
 }
 
 .sobre img {
-  width: 50%;
+  width: 35%;
   float: left;
   border-radius: 5px;
   margin: 0 15px 15px 0;
@@ -25,10 +25,11 @@
   text-align: justify;
 }
 
+/*
 .lateral {
   width: 30%;
   float: right;
   padding: 10px 20px;
   border-radius: 5px;
   border: 1px solid rgba(0, 180, 255, 0.3);
-}
+}*/

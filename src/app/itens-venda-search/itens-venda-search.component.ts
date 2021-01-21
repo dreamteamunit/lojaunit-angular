@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ItensVenda } from '../itens-venda';
 import { Observable, Subject } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { ItensVenda } from '../itens-venda';
 import { ItensVendaService } from '../itens-venda.service';
 
 @Component({
@@ -12,33 +10,36 @@ import { ItensVendaService } from '../itens-venda.service';
   styleUrls: ['./itens-venda-search.component.css'],
 })
 export class ItensVendaSearchComponent implements OnInit {
+  itensVenda: Observable<ItensVenda>;
   @Input() inputItensVenda: ItensVenda;
   private searchTerms = new Subject<string>();
 
-  constructor(
-    private route: ActivatedRoute,
-    private itensVendaService: ItensVendaService,
-    private location: Location
-  ) {}
+  constructor(private itensVendaService: ItensVendaService) {}
 
-  ngOnInit(): void {
-    this.getItensVenda();
-  }
-
+  // Push a search term into the observable stream.
   search(term: string): void {
     this.searchTerms.next(term);
   }
-
   getItensVenda(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.itensVendaService
-      .getItensVendaById(id)
-      .subscribe((itensVenda) => (this.inputItensVenda = itensVenda));
+    this.itensVenda.subscribe((itensVenda) => {
+      //console.log(itensVenda);
+      this.inputItensVenda = itensVenda;
+    });
   }
-  goBack(): void {
-    this.location.back();
+
+  ngOnInit(): void {
+    this.itensVenda = this.searchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => {
+        return this.itensVendaService.searchItensVenda(term);
+      })
+    );
+    this.getItensVenda();
   }
-  save(): void {
-    this.itensVendaService.updateItensVenda(this.itensVenda).subscribe(() => this.goBack());
-  } 
 }
