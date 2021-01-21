@@ -33,16 +33,16 @@ export class FaqComponent implements OnInit {
     this.faqs = this.faqs.filter((h) => h !== faq);
     this.FaqService.deleteFaq(faq).subscribe();
   }
-  add(texto: string,produto: Produto): void {
+  add(texto: string,idProduto: Produto): void {
     texto = texto.trim();
     
-    let datahora = new Date().toISOString();
+    let datahora = new Date().toISOString().replace("Z","");
     
-    if (!texto && !produto) {
+    if (!texto && !idProduto) {
       return;
     }
 
-    this.FaqService.addFaq({ datahora, texto, produto } as Faq).subscribe((faq) => {
+    this.FaqService.addFaq({ datahora, texto, idProduto } as Faq).subscribe((faq) => {
       this.faqs.push(faq);
     });
   }
