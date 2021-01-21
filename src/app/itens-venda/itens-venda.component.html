@@ -1,0 +1,57 @@
+<h2>CRUD ItensVenda's</h2>
+<hr />
+
+<h4>Cadastrar ItensVenda</h4>
+
+<form class="cadastro">
+  <div class="form-row">
+    <!--<div class="col">
+      <label for="datahora">Data / Hora</label>
+      <input type="date" class="form-control" placeholder="Data/Hora do Momento da Postagem" #itensvendaDatahora id="datahora" readonly />
+    </div>-->
+    <div class="col">
+      <label for="venda">Venda</label>
+      <input type="text" class="form-control" placeholder="ID da Venda" #itensvendaVenda required id="venda" />
+    </div>
+  </div>
+  <div class="form-row">
+    <!--<div class="col">
+      <label for="datahora">Data / Hora</label>
+      <input type="date" class="form-control" placeholder="Data/Hora do Momento da Postagem" #faqDatahora id="datahora" readonly />
+    </div>-->
+    <div class="col">
+      <label for="produto">Produto</label>
+      <input type="text" class="form-control" placeholder="ID do Produto" #faqProduto required id="produto" />
+    </div>
+  </div><br />
+  <button (click)="add(itensvendaTexto.value,itensvendaProduto.value); itensvendaTexto.value='';itensvendaProduto.value=''" class="btn btn-success"> Adicionar </button>
+  <input type="reset" value="Limpar" class="reset btn btn-warning">
+</form>
+<hr />
+<h4>Listar/Apagar ItensVenda</h4>
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">Data</th>
+      <th scope="col">Texto</th>
+      <th scope="col">Produto</th>
+      <th scope="col">Apagar</th>
+      <th scope="col">Atualizar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let itensvenda of itensvendas">
+      <th scope="row"><a routerLink="/itensvenda/detail/{{itensvenda.id}}">{{itensvenda.id}}</a></th>
+      <td scope="row">{{itensvenda.datahora}}</td>
+      <td>{{itensvenda.texto}}</td>
+      <td>{{itensvenda.produto.nome}}</td>
+      <td><button class="delete btn btn-danger fa fa-trash" title="Apagar ItensVenda"
+        (click)="delete(itensvenda)"></button></td>
+      <td><button class="delete btn btn-warning fa fa-edit" title="Atualizar ItensVenda"
+        routerLink="/itensvenda/detail/{{itensvenda.id}}"></button></td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<!-<app-itensvenda-search></app-itensvenda-search>-->

@@ -39,7 +39,7 @@ import { catchError, map, tap } from 'rxjs/operators';
     getFaq(): Observable<Faq[]> {
       return this.http.get<Faq[]>(this.api + '/all').pipe(
         tap((_) => this.log('Faqs recuperados')),
-        catchError(this.handleError<Faq[]>('getDaq', []))
+        catchError(this.handleError<Faq[]>('getFaq', []))
     );
   }
 
@@ -73,12 +73,12 @@ import { catchError, map, tap } from 'rxjs/operators';
     );
   }
 
-  updateFaq(faq: Faq): Observable<any> {
+  updateFaq(faq: Faq): Observable<Faq> {
     return this.http
       .put(`${this.api}/update/${faq.id}`, faq, this.httpOptions)
       .pipe(
         tap((_) => this.log(`faq atualizada id=${faq.id}`)),
-        catchError(this.handleError<any>('updateFaq'))
+        catchError(this.handleError<Faq>('updateFaq'))
       );
   }
   searchFaq(term: string): Observable<Faq> {
