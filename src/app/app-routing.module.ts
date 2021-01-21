@@ -15,6 +15,8 @@ import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.co
 import { FormaPagamentoDetailComponent } from './forma-pagamento-detail/forma-pagamento-detail.component';
 import { ProdutoDetailComponent } from './produto-detail/produto-detail.component';
 import { FaqDetailComponent } from './faq-detail/faq-detail.component';
+import { VendaDetailComponent } from './faq-detail/faq-detail.component';
+import { ItensVendaDetailComponent } from './faq-detail/faq-detail.component';
 
 
 const routes: Routes = [
@@ -77,6 +79,22 @@ const routes: Routes = [
   {
     path: 'faq/detail/:id',
     component: FaqDetailComponent,
+  },
+  {
+    path: 'venda',
+    component: FaqComponent,
+  },
+  {
+    path: 'venda/detail/:id',
+    component: VendaDetailComponent,
+  },
+  {
+    path: 'itensenda',
+    component: ItensVendaComponent,
+  },
+  {
+    path: 'itensenda/detail/:id',
+    component: ItensVendaDetailComponent,
   },
 ];
 

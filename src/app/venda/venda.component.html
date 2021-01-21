@@ -1,0 +1,54 @@
+<h2>CRUD Vendas</h2>
+<hr />
+
+<h4>Cadastrar Venda</h4>
+
+<form class="cadastro">
+  <div class="form-row">
+    <div class="col">
+      <label for="idCliente">ID Cliente</label>
+      <input type="text" class="form-control" placeholder="ID do Cliente" #vendaIdCliente required id="idCliente" />
+    </div>
+    <div class="col">
+      <label for="idFormaPagamento">ID Forma de Pagamento</label>
+      <input type="text" class="form-control" placeholder="ID da Forma de Pagamento" #vendaIdFormaPagamento id="idFormaPagamento" />
+    </div>
+    <div class="col">
+      <label for="valor">Valor Total</label>
+      <input type="text" class="form-control" placeholder="Valor Total Venda" #vendaValorTotal id="valor" />
+    </div>
+  </div> <br />
+  <button (click)="add(vendaIdCliente.value,vendaIdFormaPagamento.value,vendaValorTotal.value); vendaIdCliente.value='';vendaIdFormaPagamento.value='';vendaValorTotal.value=''" class="btn btn-success"> Adicionar </button>
+  <input type="reset" value="Limpar" class="reset btn btn-warning" />
+</form>
+<hr />
+<h4>Listar/Apagar Venda</h4>
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">Data Venda</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Forma Pagamento</th>
+      <th scope="col">Valor Total</th>
+      <th scope="col">Apagar</th>
+      <th scope="col">Atualizar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let venda of vendas">
+      <th scope="row"><a routerLink="/venda/detail/{{venda.id}}">{{venda.id}}</a></th>
+      <td scope="row">{{venda.datahora}}</td>
+      <td>{{venda.idCliente}}</td>
+      <td>{{venda.idFormaPagamento}}</td>
+      <td>{{venda.valorTotal}}</td>
+      <td><button class="delete btn btn-danger fa fa-trash" title="Apagar Venda"
+        (click)="delete(venda)"></button></td>
+      <td><button class="delete btn btn-warning fa fa-edit" title="Atualizar Venda"
+        routerLink="/venda/detail/{{venda.id}}"></button></td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<app-venda-search></app-venda-search>
+

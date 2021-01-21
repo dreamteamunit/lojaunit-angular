@@ -1,0 +1,23 @@
+<div *ngIf="venda">
+    <h4>Atualizar Venda - {{venda.id}}</h4>
+    <hr />
+    <form class="cadastro">
+        <div class="form-row">
+          <div class="col">
+            <label for="id">Id Cliente</label>
+            <input type="text" class="form-control" placeholder="Id Cliente" #vendaId required id="id" [(ngModel)]="venda.idCliente" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="idForma">Id Forma Pagamento</label>
+            <input type="text" class="form-control" placeholder="Id Forma de Pagamento" #vendaIdFormaPagamento required id="idForma" [(ngModel)]="venda.idFormaPagamento" [ngModelOptions]="{standalone: true}" />
+          </div>
+          <div class="col">
+            <label for="valor">Valor Total</label>
+            <input type="text" class="form-control" placeholder="Valor Total" #vendaValorTotal required id="valor" [(ngModel)]="venda.valorTotal" [ngModelOptions]="{standalone: true}" />
+          </div>
+        </div><br />
+        <button (click)="goBack()" class="btn btn-warning">Voltar</button>
+        <button (click)="save()" class="reset btn btn-success">Atualizar</button>
+    </form>
+</div>
+<hr />

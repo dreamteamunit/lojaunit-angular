@@ -29,9 +29,15 @@ import { ProdutoDetailComponent } from './produto-detail/produto-detail.componen
 import { ProdutoSearchComponent } from './produto-search/produto-search.component';
 import { FaqDetailComponent } from './faq-detail/faq-detail.component';
 import { FaqSearchComponent } from './faq-search/faq-search.component';
+import { VendaDetailComponent } from './venda-detail/venda-detail.component';
+import { VendaSearchComponent } from './venda-search/venda-search.component';
+import { VendaComponent } from './venda/venda.component';
+import { ItensVendaDetailComponent } from './itens-venda-detail/itens-venda-detail.component';
+import { ItensVendaSearchComponent } from './itens-venda-search/itens-venda-search.component';
+import { ItensVendaComponent } from './itens-venda/itens-venda.component';
 
 @NgModule({
-  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent, FormaPagamentoComponent,ProdutoComponent, MarcaDetailComponent, MarcaSearchComponent, QuemsomosComponent, AdminComponent, FaqComponent, ClienteDetailComponent, ClienteSearchComponent, FornecedorDetailComponent, FornecedorSearchComponent, CategoriaDetailComponent, CategoriaSearchComponent, FormaPagamentoDetailComponent, FormaPagamentoSearchComponent, ProdutoDetailComponent, ProdutoSearchComponent, FaqDetailComponent, FaqSearchComponent],
+  declarations: [AppComponent, ClientesComponent, MessagesComponent, FornecedorComponent, MarcaComponent, CategoriaComponent, FormaPagamentoComponent,ProdutoComponent, MarcaDetailComponent, MarcaSearchComponent, QuemsomosComponent, AdminComponent, FaqComponent, ClienteDetailComponent, ClienteSearchComponent, FornecedorDetailComponent, FornecedorSearchComponent, CategoriaDetailComponent, CategoriaSearchComponent, FormaPagamentoDetailComponent, FormaPagamentoSearchComponent, ProdutoDetailComponent, ProdutoSearchComponent, FaqDetailComponent, FaqSearchComponent, VendaDetailComponent, VendaSearchComponent, VendaComponent, ItensVendaDetailComponent, ItensVendaSearchComponent, ItensVendaComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
