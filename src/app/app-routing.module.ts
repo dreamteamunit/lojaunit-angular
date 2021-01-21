@@ -9,14 +9,16 @@ import { CategoriaComponent } from './categoria/categoria.component'
 import { MarcaDetailComponent } from './marca-detail/marca-detail.component'
 import { QuemsomosComponent } from './quemsomos/quemsomos.component'
 import { FaqComponent } from './faq/faq.component'
+import { VendaComponent } from './venda/venda.component'
+import { ItensVendaComponent } from './itens-venda/itens-venda.component';
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { FornecedorDetailComponent } from './fornecedor-detail/fornecedor-detail.component';
 import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.component';
 import { FormaPagamentoDetailComponent } from './forma-pagamento-detail/forma-pagamento-detail.component';
 import { ProdutoDetailComponent } from './produto-detail/produto-detail.component';
 import { FaqDetailComponent } from './faq-detail/faq-detail.component';
-import { VendaDetailComponent } from './faq-detail/faq-detail.component';
-import { ItensVendaDetailComponent } from './faq-detail/faq-detail.component';
+import { VendaDetailComponent } from './venda-detail/venda-detail.component';
+import { ItensVendaDetailComponent } from './itens-venda-detail/itens-venda-detail.component';
 
 
 const routes: Routes = [
@@ -82,18 +84,18 @@ const routes: Routes = [
   },
   {
     path: 'venda',
-    component: FaqComponent,
+    component: VendaComponent,
   },
   {
     path: 'venda/detail/:id',
     component: VendaDetailComponent,
   },
   {
-    path: 'itensenda',
+    path: 'itensvenda',
     component: ItensVendaComponent,
   },
   {
-    path: 'itensenda/detail/:id',
+    path: 'itensvenda/detail/:id',
     component: ItensVendaDetailComponent,
   },
 ];

@@ -75,7 +75,7 @@ nav a:visited, a:link {
 }
 nav a:hover {
   color: #039be5;
-  border: 1px solid rgba(0, 183, 255, 0.2);
+  /*border: 1px solid rgba(0, 183, 255, 0.2);*/
   /*background-color: #cfd8dc;*/
 }
 nav a.active {
