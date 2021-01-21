@@ -1,1 +1,27 @@
-<p>itens-venda-detail works!</p>
+<div *ngIf="itensVenda">
+    <h4>Atualizar ItensVenda</h4>
+    <hr />
+    <form class="cadastro">
+        <div class="form-row">
+            <div class="col">
+              <label for="quantidade">Quantidade</label>
+              <input type="number" class="form-control" placeholder="Quantidade" #itensvendaQuantidade required id="quantidade" [(ngModel)]="itensVenda.quantidade" [ngModelOptions]="{standalone: true}" />
+            </div>
+            <div class="col">
+              <label for="valor">Valor Unitário</label>
+              <input type="number" class="form-control" placeholder="Valor Unitário" #itensvendaValor required id="valor" [(ngModel)]="itensVenda.valorUnitario" [ngModelOptions]="{standalone: true}" />
+            </div>
+            <div class="col">
+              <label for="venda">ID Venda</label>
+              <input type="number" class="form-control" placeholder="ID Venda" #itensvendaIdVenda required id="venda" [(ngModel)]="itensVenda.IdVenda" [ngModelOptions]="{standalone: true}" />
+            </div>
+            <div class="col">
+              <label for="produto">ID Produto</label>
+              <input type="number" class="form-control" placeholder="ID Produto" #itensvendaIdProduto required id="produto" [(ngModel)]="itensVenda.idProduto" [ngModelOptions]="{standalone: true}" />
+            </div>
+          </div> <br />
+        <button (click)="goBack()" class="btn btn-warning">Voltar</button>
+        <button (click)="save()" class="reset btn btn-success">Atualizar</button>
+    </form>
+</div>
+<hr />

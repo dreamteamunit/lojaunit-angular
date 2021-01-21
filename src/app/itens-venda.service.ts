@@ -45,7 +45,7 @@ export class ItensVendaService {
   getItensVendaById(id: number): Observable<ItensVenda> {
     const url = `${this.api}/find/${id}`;
     return this.http.get<ItensVenda>(url).pipe(
-      tap((_) => this.log(`daq recuperada id=${id}`)),
+      tap((_) => this.log(`itensvenda recuperada id=${id}`)),
       catchError(this.handleError<ItensVenda>(`getItensVenda id=${id}`))
     );
   }

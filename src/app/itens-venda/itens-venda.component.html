@@ -5,26 +5,25 @@
 
 <form class="cadastro">
   <div class="form-row">
-    <!--<div class="col">
-      <label for="datahora">Data / Hora</label>
-      <input type="date" class="form-control" placeholder="Data/Hora do Momento da Postagem" #itensvendaDatahora id="datahora" readonly />
-    </div>-->
     <div class="col">
-      <label for="venda">Venda</label>
-      <input type="text" class="form-control" placeholder="ID da Venda" #itensvendaVenda required id="venda" />
+      <label for="quantidade">Quantidade</label>
+      <input type="number" class="form-control" placeholder="Quantidade" #itensvendaQuantidade required id="quantidade" />
     </div>
-  </div>
-  <div class="form-row">
-    <!--<div class="col">
-      <label for="datahora">Data / Hora</label>
-      <input type="date" class="form-control" placeholder="Data/Hora do Momento da Postagem" #faqDatahora id="datahora" readonly />
-    </div>-->
     <div class="col">
-      <label for="produto">Produto</label>
-      <input type="text" class="form-control" placeholder="ID do Produto" #faqProduto required id="produto" />
+      <label for="valor">Valor Unitário</label>
+      <input type="number" class="form-control" placeholder="Valor Unitário" #itensvendaValor required id="valor" />
+    </div>
+    <div class="col">
+      <label for="venda">ID Venda</label>
+      <input type="number" class="form-control" placeholder="ID Venda" #itensvendaIdVenda required id="venda" />
+    </div>
+    <div class="col">
+      <label for="produto">ID Produto</label>
+      <input type="number" class="form-control" placeholder="ID Produto" #itensvendaIdProduto required id="produto" />
     </div>
   </div><br />
-  <button (click)="add(itensvendaTexto.value,itensvendaProduto.value); itensvendaTexto.value='';itensvendaProduto.value=''" class="btn btn-success"> Adicionar </button>
+  <button (click)="add(itensvendaQuantidade.value,itensvendaValor.value,itensvendaIdVenda.value,itensvendaIdProduto.value); 
+  itensvendaQuantidade.value='';itensvendaValor.value='';itensvendaIdVenda.value='';itensvendaIdProduto.value=''" class="btn btn-success"> Adicionar </button>
   <input type="reset" value="Limpar" class="reset btn btn-warning">
 </form>
 <hr />
@@ -32,24 +31,25 @@
 <table class="table table-sm table-striped">
   <thead>
     <tr>
-      <th scope="col">#Id</th>
-      <th scope="col">Data</th>
-      <th scope="col">Texto</th>
-      <th scope="col">Produto</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Valor Unitário</th>
+      <th scope="col">ID Venda</th>
+      <th scope="col">ID Produto</th>
       <th scope="col">Apagar</th>
       <th scope="col">Atualizar</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let itensvenda of itensvendas">
-      <th scope="row"><a routerLink="/itensvenda/detail/{{itensvenda.id}}">{{itensvenda.id}}</a></th>
-      <td scope="row">{{itensvenda.datahora}}</td>
-      <td>{{itensvenda.texto}}</td>
+    <tr *ngFor="let itensvenda of itensVendas">
+      <!--<th scope="row"><a routerLink="/itensvenda/detail/{{itensvenda.id}}">{{itensvenda.id}}</a></th>-->
+      <td scope="row">{{itensvenda.quantidade}}</td>
+      <td>{{itensvenda.valorUnitario}}</td>
+      <td>{{itensvenda.venda}}</td>
       <td>{{itensvenda.produto.nome}}</td>
       <td><button class="delete btn btn-danger fa fa-trash" title="Apagar ItensVenda"
         (click)="delete(itensvenda)"></button></td>
       <td><button class="delete btn btn-warning fa fa-edit" title="Atualizar ItensVenda"
-        routerLink="/itensvenda/detail/{{itensvenda.id}}"></button></td>
+        routerLink="/itens-venda/detail/{{itensvenda.id}}"></button></td>
     </tr>
   </tbody>
 </table>

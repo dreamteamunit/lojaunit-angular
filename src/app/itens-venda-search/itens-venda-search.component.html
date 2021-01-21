@@ -1,1 +1,13 @@
-<p>itens-venda-search works!</p>
+<div id="search-component">
+    <h4><label for="search-box">Pesquisar ItensVenda</label></h4>
+  
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Informe o ID" />
+    <ul class="search-result">
+      <li *ngIf="inputItensVenda" class="h-auto">
+        <a routerLink="/itens-venda/detail/{{inputItensVenda.id}}">
+          {{inputItensVenda.id}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <hr />
