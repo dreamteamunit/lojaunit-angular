@@ -39,8 +39,8 @@
     <tr *ngFor="let venda of vendas">
       <th scope="row"><a routerLink="/venda/detail/{{venda.id}}">{{venda.id}}</a></th>
       <td scope="row">{{venda.datahora}}</td>
-      <td>{{venda.idCliente}}</td>
-      <td>{{venda.idFormaPagamento}}</td>
+      <td>{{venda.cliente.nome}}</td>
+      <td>{{venda.formaPagamento.descricao}}</td>
       <td>{{venda.valorTotal}}</td>
       <td><button class="delete btn btn-danger fa fa-trash" title="Apagar Venda"
         (click)="delete(venda)"></button></td>

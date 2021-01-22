@@ -34,7 +34,7 @@
       <th scope="col">Quantidade</th>
       <th scope="col">Valor Unitário</th>
       <th scope="col">ID Venda</th>
-      <th scope="col">ID Produto</th>
+      <th scope="col">Produto</th>
       <th scope="col">Apagar</th>
       <th scope="col">Atualizar</th>
     </tr>
@@ -44,14 +44,14 @@
       <!--<th scope="row"><a routerLink="/itensvenda/detail/{{itensvenda.id}}">{{itensvenda.id}}</a></th>-->
       <td scope="row">{{itensvenda.quantidade}}</td>
       <td>{{itensvenda.valorUnitario}}</td>
-      <td>{{itensvenda.venda}}</td>
+      <td>{{itensvenda.venda.id}}</td>
       <td>{{itensvenda.produto.nome}}</td>
       <td><button class="delete btn btn-danger fa fa-trash" title="Apagar ItensVenda"
-        (click)="delete(itensvenda)"></button></td>
+        (click)="delete(itensvenda.venda.id,itensvenda.produto.id)"></button></td>
       <td><button class="delete btn btn-warning fa fa-edit" title="Atualizar ItensVenda"
-        routerLink="/itens-venda/detail/{{itensvenda.id}}"></button></td>
+        routerLink="/itens-venda/detail/{{itensvenda.id}}" disabled></button></td>
     </tr>
   </tbody>
 </table>
 <hr />
-<app-itens-venda-search></app-itens-venda-search>
+<!--<app-itens-venda-search></app-itens-venda-search>-->

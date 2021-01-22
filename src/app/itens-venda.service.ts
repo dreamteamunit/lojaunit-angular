@@ -24,12 +24,11 @@ export class ItensVendaService {
       catchError(this.handleError<ItensVenda[]>('getItensVenda', []))
     );
   }
-  deleteItensVenda(itensvenda: ItensVenda | number): Observable<ItensVenda> {
-    const id = typeof itensvenda === 'number' ? itensvenda : itensvenda.id;
-    const url = `${this.api}/delete/${id}`;
+  deleteItensVenda(idVenda: number,idProduto: number): Observable<ItensVenda> {
+    const url = `${this.api}/delete/venda/${idVenda}/produto/${idProduto}`;
 
     return this.http.delete<ItensVenda>(url, this.httpOptions).pipe(
-      tap((_) => this.log(`itensvenda deletado id=${id}`)),
+      tap((_) => this.log(`itensvenda deletado`)),
       catchError(this.handleError<ItensVenda>('deleteItensVenda'))
     );
   }

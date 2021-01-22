@@ -37,5 +37,6 @@ export class VendaComponent implements OnInit {
     this.VendaService.addVenda({ datahora, idCliente, idFormaPagamento, valorTotal } as Venda).subscribe((venda) => {
       this.vendas.push(venda);
     });
+     window.location.reload(); 
   }
 }

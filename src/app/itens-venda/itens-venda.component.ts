@@ -30,9 +30,10 @@ export class ItensVendaComponent implements OnInit {
       .subscribe((itensVenda) => (this.itensVendas = itensVenda));
   }
 
-  delete(itensVenda: ItensVenda): void {
-    this.itensVendas = this.itensVendas.filter((h) => h !== itensVenda);
-    this.ItensVendaService.deleteItensVenda(itensVenda).subscribe();
+  delete(idVenda: number,idProduto:number): void {
+    //this.itensVendas = this.itensVendas.filter((h) => h !== itensVenda);
+    this.ItensVendaService.deleteItensVenda(idVenda,idProduto).subscribe();
+    window.location.reload();
   }
   add(quantidade: number,valorUnitario: number,idProduto: Produto,idVenda: Venda): void {
     
